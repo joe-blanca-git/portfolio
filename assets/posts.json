@@ -1,0 +1,73 @@
+[
+  {
+    "id": 6,
+    "imgHeader": "https://media.licdn.com/dms/image/v2/D4D22AQHekGgZ0Ud6-g/feedshare-shrink_2048_1536/B4DZvXA_cZJgAk-/0/1768838920324?e=1770854400&v=beta&t=1S1nxWb0uJ3hMXG2Pf_UC-ceCDyXkvaj4FkQgEzsdHM",
+    "tag": "Publicação",
+    "title": "Me diga como codas, que te direi quem és.",
+    "content": "Todo projeto de site ou aplicativo conta uma história. \n E, muitas vezes, essa história começa (ou termina 😅) na estrutura de pastas e arquivos. \n\n Código funciona? Ótimo. \n  Mas código bem organizado funciona melhor, cresce sem dor e não vira um campo minado daqui a 6 meses — principalmente quando outra pessoa (ou você mesmo no futuro) precisar mexer. \n Aqui vão 3 pontos essenciais sobre organizar corretamente a estrutura do projeto: \n\n 📁 1. Organização não é frescura, é produtividade Uma estrutura clara economiza tempo. \n\n Quando você sabe exatamente onde cada coisa mora, você: \n\n  Navega mais rápido no projeto.\n Evita arquivos duplicados. \n Reduz aquela clássica pergunta: “onde foi que eu coloquei isso?” Tempo gasto organizando = tempo ganho codando.  \n\n 🧠2. Código organizado comunica (até sem comentários) Uma boa estrutura fala por si só. \n\n Mesmo sem ler uma linha de código, dá pra entender: \n\n Onde estão componentes. \n Onde ficam serviços, regras de negócio e estilos. \n O que é reutilizável e o que é específico. \n\n Isso facilita code review, onboarding de novos devs e evita aquele terror: “ninguém mais mexe nisso porque ninguém entende”. \n\n 🚀 3. Projeto organizado cresce sem virar caos \n\n Todo projeto começa pequeno… até deixar de ser. \n\n Quando a base já nasce organizada: Escalar é mais fácil. \n Refatorar dói menos. \n Bugs aparecem com menos frequência (e são mais fáceis de achar). \n Projeto bagunçado até funciona — até o dia que precisa evoluir. \n\n No fim das contas, não é só sobre código bonito. \n É sobre pensar como engenheiro, não só como digitador de solução. \n Porque sim…",
+    "images": [
+      {
+        "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgK7xT3fVs5OH8Gm6gd1Jkwoo1wIxLejbU-A&s",
+        "url": "https://media.licdn.com/dms/image/v2/D4D22AQHekGgZ0Ud6-g/feedshare-shrink_2048_1536/B4DZvXA_cZJgAk-/0/1768838920324?e=1770854400&v=beta&t=1S1nxWb0uJ3hMXG2Pf_UC-ceCDyXkvaj4FkQgEzsdHM"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "imgHeader": "https://media.licdn.com/dms/image/v2/D4D22AQGfw1HR3SGQNg/feedshare-shrink_800/B4DZu4J3rGJ4Ag-/0/1768321154076?e=1769644800&v=beta&t=o-qK2NeY7GSMgkTnPQRnm_09H_ZtG9T4gaVIrXBTNd0",
+    "tag": "Publicação",
+    "title": "Frameworks mudam. Lógica não.",
+    "content": "Todo ano surge um novo framework prometendo ser a solução definitiva.\nMais rápido. Mais moderno. Mais produtivo.\n\nE muita gente entra na corrida para aprender o próximo da lista, Mas com o tempo, uma coisa fica clara:\nframeworks vêm e vão — a lógica permanece.\n\nQuem entende:\n\n- estrutura de dados\n- fluxo de execução\n- boas práticas\n- responsabilidade de cada camada\n- como o sistema realmente funciona\n\nconsegue se adaptar a qualquer stack.\n\nQuem aprende só como fazer funcionar dentro de um framework específico, sofre quando ele muda ou quando o projeto exige outra abordagem.\n\nFrameworks são ferramentas.\nLógica é fundamento.\n\nInvista tempo em entender o porquê, não só o como.\nIsso é o que separa quem apenas escreve código de quem resolve problemas.\n\nE você, prefere aprender frameworks ou dominar os fundamentos primeiro?",
+    "images": []
+  },
+  {
+    "id": 4,
+    "imgHeader": "assets/img/events/evento3.jpeg",
+    "tag": "Evento",
+    "title": "II Workshop de Tecn. Canavieira Tracbel",
+    "content": "No dia 02 de outubro de 2025, tive a oportunidade de participar do II Workshop de Tecnologia Canavieira, realizado na unidade de Bebedouro (SP) e promovido pela John Deere e pela Tracbel Agro. O evento reuniu cerca de 200 participantes, entre especialistas, parceiros, colaboradores e representantes de mais de 20 usinas da região, em um dia repleto de conhecimento, inovação e troca de experiências.\n\nDurante o encontro, acompanhamos de perto as mais recentes soluções da John Deere, como a colhedora CH950, o pulverizador 230M e as tecnologias de agricultura de precisão INC PRO e ExactApply — ferramentas que estão revolucionando o manejo da cana-de-açúcar, elevando os níveis de eficiência e produtividade no campo.\n\nAlém das demonstrações práticas, o evento contou com palestras técnicas sobre temas fundamentais para o futuro da mecanização e da gestão agrícola, entre eles: Gestão de Cana Georreferenciada, Inovação na Colheita de Cana e Tecnologia de Aplicação.\n\nTive a honra de palestrar sobre o projeto de integração com a API do Operations Center, desenvolvido pela Usina Alta Mogiana S/A, compartilhando as oportunidades, desafios e resultados dessa jornada. Foi uma experiência enriquecedora poder apresentar um trabalho que reflete o esforço conjunto de toda a equipe e que reforça o quanto a tecnologia e a integração de dados têm potencial para transformar a gestão agrícola.\n\nDurante minha apresentação, também compartilhei algumas das melhores práticas de desenvolvimento que aplicamos no projeto — práticas que fazem da Usina Alta Mogiana S/A uma referência em inovação e uso de tecnologias avançadas no setor sucroenergético.\n\nAproveito este espaço para agradecer à John Deere e à Tracbel Agro pela impecável organização do evento e pela homenagem aos 42 anos da Usina Alta Mogiana S/A.\n\nMeu agradecimento especial ao meu gerente Paulo Sérgio Santos, ao coordenador Wesley Bonini, e aos colegas Jefferson Ferracini, José Misael Alves e Cleyson Rodrigues Barbosa, que tiveram papel fundamental na execução e no sucesso deste projeto.\n\nTambém deixo meu reconhecimento aos amigos Alfredo Barbosa Neto, Felipe Fabro e Alexandre Kersten, parceiros essenciais nessa jornada.\n\nO II Workshop de Tecnologia Canavieira foi muito mais do que um evento técnico — foi um momento de conexão, aprendizado e celebração da inovação, reforçando o compromisso da Tracbel Agro, da John Deere e da Usina Alta Mogiana S/A com o avanço tecnológico do setor canavieiro brasileiro.\n\nSaio desse encontro ainda mais motivado a continuar contribuindo para um campo cada vez mais digital, integrado e sustentável.",
+    "images": [
+      { "url": "assets/img/events/evento1.jpeg" },
+      { "url": "assets/img/events/evento2.jpeg" },
+      { "url": "assets/img/events/evento3.jpeg" }
+    ]
+  },
+
+  {
+    "id": 3,
+    "imgHeader": "https://agriq.com.br/wp-content/uploads/2021/08/Blog-AgriQ-Agricultura-de-precisao_Creditos-Shutterstock.jpg",
+    "tag": "Publicação",
+    "title": "Fim das Ilhas Digitais no Campo",
+    "content": "O agronegócio moderno é um oceano de dados. Sensores no solo, drones mapeando o talhão, tratores com GPS e piloto automático, estações meteorológicas, softwares de gestão (ERPs)... a quantidade de tecnologia disponível é impressionante. No entanto, por muito tempo, cada uma dessas tecnologias funcionou como uma <b>ilha digital</b>.<br><br>O trator coletava dados de plantio, o drone gerava mapas de saúde da lavoura, e o ERP controlava o financeiro, mas esses sistemas raramente conversavam entre si. É aqui que a integração de sistemas entra como a verdadeira força motriz da agricultura de precisão.<br><br>A agricultura de precisão não é mais sobre ter o melhor trator ou o melhor drone. É sobre ter o ecossistema mais inteligente e conectado. A fazenda do futuro não é a que tem mais tecnologia, mas aquela onde todas as tecnologias dialogam perfeitamente entre si.",
+    "images": [
+      { "url": "https://media-agro.estadao.com.br/uploads/2021/01/665.jpg" },
+      {
+        "url": "https://www.totvs.com/wp-content/uploads/2024/12/agricultura-de-precisao-capa.jpg"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "imgHeader": "assets/img/events/evento4.jpeg",
+    "tag": "Celebração",
+    "title": "Usina Alta Mogiana celebra 42 anos.",
+    "content": "Neste mês de outubro celebramos com gratidão e orgulho os 42 anos da nossa história. Uma trajetória construída com muito trabalho, superação e, acima de tudo, pelo compromisso de pessoas que acreditam em fazer a diferença todos os dias. Ao longo desse caminho, não acumulamos apenas números, mas histórias de crescimento, inovação e contribuição para o desenvolvimento da nossa região, que se fortalece junto com a nossa evolução.\n\nEssa construção só é possível porque caminhamos lado a lado com colaboradores, parceiros e clientes, que transformam desafios em resultados e metas em grandes conquistas. Vocês são a base que sustenta cada passo dessa jornada.\n\nE é com essa mesma energia, união e determinação que seguimos em frente, prontos para escrever os próximos capítulos e construir juntos um futuro ainda mais promissor.",
+    "images": [
+      { "url": "assets/img/events/usina1.jpeg" },
+      { "url": "assets/img/events/usina2.webp" },
+      { "url": "assets/img/events/usina3.avif" }
+    ]
+  },
+  {
+    "id": 1,
+    "imgHeader": "https://media.licdn.com/dms/image/v2/D4D22AQFY93CWAt3VyQ/feedshare-shrink_1280/feedshare-shrink_1280/0/1718583656431?e=1770854400&v=beta&t=2aWTvgA-ICZtoncm_jNuUbPGGJcG7u72AJQIpx7Ssuw",
+    "tag": "Evento",
+    "title": "Vision Tech Summit",
+    "content": "Tive o prazer de participar do Vision Tech Summit em Ribeirão Preto, na companhia do meu amigo Hernani Mazier. Foi uma excelente experiência nesta conferência de inovação, tecnologia e transformação digital para o agronegócio.",
+    "images": [
+      {
+        "url": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000dc68720e8004622bcd59c6ad&ts=491200&p=fs&cid=1&sig=013c7c8a9138c9bb2ba91a3aaecddcad40a05112bdc33d472106770e7476f6b6&v=0"
+      }
+    ]
+  }
+]
