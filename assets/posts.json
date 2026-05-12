@@ -1,20 +1,20 @@
 [
   {
     "id": 6,
-    "imgHeader": "https://media.licdn.com/dms/image/v2/D4D22AQHekGgZ0Ud6-g/feedshare-shrink_2048_1536/B4DZvXA_cZJgAk-/0/1768838920324?e=1770854400&v=beta&t=1S1nxWb0uJ3hMXG2Pf_UC-ceCDyXkvaj4FkQgEzsdHM",
+    "imgHeader": "https://assets-blog.hostgator.com.br/wp-content/uploads/2022/01/source-gcf3182850_1920.webp",
     "tag": "Publicação",
     "title": "Me diga como codas, que te direi quem és.",
     "content": "Todo projeto de site ou aplicativo conta uma história. \n E, muitas vezes, essa história começa (ou termina 😅) na estrutura de pastas e arquivos. \n\n Código funciona? Ótimo. \n  Mas código bem organizado funciona melhor, cresce sem dor e não vira um campo minado daqui a 6 meses — principalmente quando outra pessoa (ou você mesmo no futuro) precisar mexer. \n Aqui vão 3 pontos essenciais sobre organizar corretamente a estrutura do projeto: \n\n 📁 1. Organização não é frescura, é produtividade Uma estrutura clara economiza tempo. \n\n Quando você sabe exatamente onde cada coisa mora, você: \n\n  Navega mais rápido no projeto.\n Evita arquivos duplicados. \n Reduz aquela clássica pergunta: “onde foi que eu coloquei isso?” Tempo gasto organizando = tempo ganho codando.  \n\n 🧠2. Código organizado comunica (até sem comentários) Uma boa estrutura fala por si só. \n\n Mesmo sem ler uma linha de código, dá pra entender: \n\n Onde estão componentes. \n Onde ficam serviços, regras de negócio e estilos. \n O que é reutilizável e o que é específico. \n\n Isso facilita code review, onboarding de novos devs e evita aquele terror: “ninguém mais mexe nisso porque ninguém entende”. \n\n 🚀 3. Projeto organizado cresce sem virar caos \n\n Todo projeto começa pequeno… até deixar de ser. \n\n Quando a base já nasce organizada: Escalar é mais fácil. \n Refatorar dói menos. \n Bugs aparecem com menos frequência (e são mais fáceis de achar). \n Projeto bagunçado até funciona — até o dia que precisa evoluir. \n\n No fim das contas, não é só sobre código bonito. \n É sobre pensar como engenheiro, não só como digitador de solução. \n Porque sim…",
     "images": [
       {
-        "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgK7xT3fVs5OH8Gm6gd1Jkwoo1wIxLejbU-A&s",
-        "url": "https://media.licdn.com/dms/image/v2/D4D22AQHekGgZ0Ud6-g/feedshare-shrink_2048_1536/B4DZvXA_cZJgAk-/0/1768838920324?e=1770854400&v=beta&t=1S1nxWb0uJ3hMXG2Pf_UC-ceCDyXkvaj4FkQgEzsdHM"
+        "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2zqJc6uos_FlA8xwe2mZBU2-jv1HaAzrbYw&s",
+        "url": "https://ma.senac.br/wp-content/uploads/2016/09/49361450104366.jpg"
       }
     ]
   },
   {
     "id": 5,
-    "imgHeader": "https://media.licdn.com/dms/image/v2/D4D22AQGfw1HR3SGQNg/feedshare-shrink_800/B4DZu4J3rGJ4Ag-/0/1768321154076?e=1769644800&v=beta&t=o-qK2NeY7GSMgkTnPQRnm_09H_ZtG9T4gaVIrXBTNd0",
+    "imgHeader": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmSFrYVDJZO3z3ZPzqos-zWUshNO4XClUTlA&s",
     "tag": "Publicação",
     "title": "Frameworks mudam. Lógica não.",
     "content": "Todo ano surge um novo framework prometendo ser a solução definitiva.\nMais rápido. Mais moderno. Mais produtivo.\n\nE muita gente entra na corrida para aprender o próximo da lista, Mas com o tempo, uma coisa fica clara:\nframeworks vêm e vão — a lógica permanece.\n\nQuem entende:\n\n- estrutura de dados\n- fluxo de execução\n- boas práticas\n- responsabilidade de cada camada\n- como o sistema realmente funciona\n\nconsegue se adaptar a qualquer stack.\n\nQuem aprende só como fazer funcionar dentro de um framework específico, sofre quando ele muda ou quando o projeto exige outra abordagem.\n\nFrameworks são ferramentas.\nLógica é fundamento.\n\nInvista tempo em entender o porquê, não só o como.\nIsso é o que separa quem apenas escreve código de quem resolve problemas.\n\nE você, prefere aprender frameworks ou dominar os fundamentos primeiro?",
@@ -60,13 +60,13 @@
   },
   {
     "id": 1,
-    "imgHeader": "https://media.licdn.com/dms/image/v2/D4D22AQFY93CWAt3VyQ/feedshare-shrink_1280/feedshare-shrink_1280/0/1718583656431?e=1770854400&v=beta&t=2aWTvgA-ICZtoncm_jNuUbPGGJcG7u72AJQIpx7Ssuw",
+    "imgHeader": "https://revistarpanews.com.br/wp-content/uploads/2024/08/Vision-Tech-Summit_Industria-do-Amanha_Img.png",
     "tag": "Evento",
     "title": "Vision Tech Summit",
     "content": "Tive o prazer de participar do Vision Tech Summit em Ribeirão Preto, na companhia do meu amigo Hernani Mazier. Foi uma excelente experiência nesta conferência de inovação, tecnologia e transformação digital para o agronegócio.",
     "images": [
       {
-        "url": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000dc68720e8004622bcd59c6ad&ts=491200&p=fs&cid=1&sig=013c7c8a9138c9bb2ba91a3aaecddcad40a05112bdc33d472106770e7476f6b6&v=0"
+        "url": "https://visaoagro.com.br/wp-content/uploads/2024/09/andre-lins-1-1024x683.jpg"
       }
     ]
   }
