@@ -1,379 +1,856 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin - Gerenciar Publicações</title>
+  <title>Admin Dashboard | Joeder Blanca</title>
   
-  <!-- Bootstrap CSS -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Quill CSS (Rich Text Editor) -->
+  <!-- CSS Files -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-primary: #0f172a;
+      --text-secondary: #64748b;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --danger: #ef4444;
+      --border: #e2e8f0;
+      --sidebar-width: 260px;
+    }
+    
     body {
-      background-color: #f7faff;
-      color: #314862;
-      font-family: "Open Sans", sans-serif;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
-    .admin-container {
-      max-width: 1000px;
-      margin: 50px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+
+    /* Utility */
+    .hidden { display: none !important; }
+    
+    /* Login Screen */
+    .login-wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     }
-    #login-panel {
-      max-width: 400px;
-      margin: 100px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    .login-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+      padding: 48px 40px;
+      width: 100%;
+      max-width: 420px;
     }
-    .hidden {
-      display: none !important;
+    
+    /* App Layout */
+    .app-wrapper {
+      display: flex;
+      min-height: 100vh;
     }
-    .action-btns button {
-      margin-right: 5px;
+    
+    /* Sidebar */
+    .sidebar {
+      width: var(--sidebar-width);
+      background: var(--card-bg);
+      border-right: 1px solid var(--border);
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      padding: 32px 16px;
+      display: flex;
+      flex-direction: column;
     }
-    #editor-container {
-      height: 300px;
-      margin-bottom: 20px;
+    .sidebar-brand {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 40px;
+      padding-left: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
-    .navbar-admin {
-      background-color: #13447f;
-      color: white;
-      padding: 15px 30px;
+    .sidebar-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .nav-item {
+      padding: 10px 16px;
       border-radius: 8px;
-      margin-bottom: 30px;
+      cursor: pointer;
+      color: var(--text-secondary);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.2s ease;
+      font-size: 15px;
+    }
+    .nav-item:hover, .nav-item.active {
+      background-color: #f1f5f9;
+      color: var(--primary);
+    }
+    .nav-item i { width: 18px; height: 18px; }
+    .sidebar-footer {
+      margin-top: auto;
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      margin-left: var(--sidebar-width);
+      padding: 48px;
+    }
+    .page-header {
+      margin-bottom: 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
+    .page-title {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    /* Cards & Components */
+    .saas-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+      padding: 32px;
+    }
+    
+    .table-modern {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+    .table-modern th {
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+    .table-modern td {
+      padding: 16px;
+      vertical-align: middle;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+    .table-modern tr:last-child td { border-bottom: none; }
+    
+    /* Buttons */
+    .btn-saas {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-saas:hover { background: var(--primary-hover); color: white; transform: translateY(-1px); }
+    .btn-saas-outline {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+    .btn-saas-outline:hover { background: #f1f5f9; color: var(--text-primary); transform: translateY(0); }
+    
+    /* Toast */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1055;
+    }
+    .saas-toast {
+      background: #1e293b;
+      color: white;
+      padding: 14px 24px;
+      border-radius: 10px;
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 10px;
+      transform: translateY(100%);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .saas-toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Forms */
+    .form-label {
+      font-weight: 500;
+      font-size: 14px;
+      color: #334155;
+      margin-bottom: 8px;
+    }
+    .form-control, .form-select {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 14px;
+      box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+      transition: all 0.2s;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+      outline: none;
+    }
+    
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .dash-card {
+      padding: 32px;
+      border-radius: 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .dash-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+      transform: translateY(-4px);
+    }
+    .dash-icon {
+      width: 56px; height: 56px;
+      border-radius: 12px;
+      background: #eff6ff;
+      color: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .dash-icon i { width: 28px; height: 28px; }
   </style>
 </head>
 <body>
 
   <!-- Login Panel -->
-  <div id="login-panel" class="container">
-    <h3 class="text-center mb-4">Admin Login</h3>
-    <div id="login-error" class="alert alert-danger hidden" role="alert"></div>
-    <form id="login-form" onsubmit="event.preventDefault(); return false;">
-      <div class="mb-3">
-        <label for="email" class="form-label">E-mail</label>
-        <input type="email" class="form-control" id="email" required>
+  <div id="login-panel" class="login-wrapper">
+    <div class="login-card">
+      <div class="text-center mb-5">
+        <i data-lucide="command" style="width: 56px; height: 56px; color: var(--primary);"></i>
+        <h3 class="mt-4" style="font-weight: 700; letter-spacing: -0.02em;">Painel de Controle</h3>
+        <p class="text-secondary mt-2" style="font-size: 15px;">Gerencie todo o conteúdo do seu site</p>
       </div>
-      <div class="mb-3">
-        <label for="password" class="form-label">Senha</label>
-        <div class="input-group">
-          <input type="password" class="form-control" id="password" required>
-          <button class="btn btn-outline-secondary" type="button" id="togglePassword" onclick="event.preventDefault();">
-            <i class="bi bi-eye" id="toggleIcon"></i>
-          </button>
+      
+      <div id="login-error" class="alert alert-danger hidden" role="alert" style="font-size: 14px; border-radius: 8px;"></div>
+      
+      <form id="login-form" onsubmit="event.preventDefault(); return false;">
+        <div class="mb-4">
+          <label class="form-label">Endereço de e-mail</label>
+          <input type="email" class="form-control" id="email" required placeholder="seu@email.com">
         </div>
-      </div>
-      <button type="button" id="login-btn" class="btn btn-primary w-100" style="background-color: #065cc2; border:none;">Entrar</button>
-      <a href="index.html" class="d-block text-center mt-3 text-secondary">Voltar ao site</a>
-    </form>
-  </div>
-
-  <!-- Dashboard Panel -->
-  <div id="dashboard-panel" class="container admin-container hidden">
-    <div class="navbar-admin">
-      <h4 class="m-0">Gerenciar Publicações</h4>
-      <div>
-        <button id="btn-logout" class="btn btn-outline-light btn-sm">Sair</button>
-      </div>
-    </div>
-
-    <!-- Alert Messages -->
-    <div id="dash-alert" class="alert hidden" role="alert"></div>
-
-    <!-- Data Grid View -->
-    <div id="grid-view">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h5>Publicações Atuais</h5>
-        <button id="btn-new-post" class="btn btn-success"><i class="bi bi-plus-lg"></i> Novo Post</button>
-      </div>
-      <div class="table-responsive">
-        <table class="table table-hover align-middle">
-          <thead class="table-light">
-            <tr>
-              <th scope="col" width="50">ID</th>
-              <th scope="col">Título</th>
-              <th scope="col" width="150">Tag</th>
-              <th scope="col" width="150">Ações</th>
-            </tr>
-          </thead>
-          <tbody id="posts-tbody">
-            <!-- Dynamic content -->
-            <tr>
-              <td colspan="4" class="text-center text-muted">Carregando...</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- Form View -->
-    <div id="form-view" class="hidden">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h5 id="form-title">Novo Post</h5>
-        <button id="btn-cancel" class="btn btn-secondary btn-sm">Cancelar</button>
-      </div>
-      <form id="post-form">
-        <input type="hidden" id="post-id">
-        <div class="mb-3">
-          <label class="form-label">Título</label>
-          <input type="text" id="post-title" class="form-control" required>
-        </div>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label class="form-label">Tag (Categoria)</label>
-            <input type="text" id="post-tag" class="form-control" required>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label class="form-label">URL da Imagem de Capa</label>
-            <input type="url" id="post-imgHeader" class="form-control" placeholder="https://...">
+        <div class="mb-5">
+          <label class="form-label">Senha de acesso</label>
+          <div class="input-group">
+            <input type="password" class="form-control" id="password" required placeholder="••••••••">
+            <button class="btn btn-outline-secondary" type="button" id="togglePassword" onclick="event.preventDefault();" style="border-color: var(--border); border-radius: 0 8px 8px 0;">
+              <i data-lucide="eye" id="toggleIcon" style="width: 18px; height: 18px; color: var(--text-secondary)"></i>
+            </button>
           </div>
         </div>
-        <div class="mb-3">
-          <label class="form-label">Conteúdo</label>
-          <div id="editor-container"></div>
+        <button type="button" id="login-btn" class="btn-saas w-100 justify-content-center" style="padding: 12px; font-size: 16px;">Entrar no sistema</button>
+        <div class="text-center mt-4 pt-2">
+          <a href="index.html" class="text-secondary text-decoration-none" style="font-size: 14px; font-weight: 500;">&larr; Voltar ao site principal</a>
         </div>
-        <button type="submit" id="btn-save" class="btn btn-primary" style="background-color: #065cc2; border:none;">Salvar Publicação</button>
       </form>
     </div>
-
   </div>
 
-  <!-- Supabase & Quill JS -->
+  <!-- App Panel -->
+  <div id="app-panel" class="app-wrapper hidden">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <i data-lucide="command" style="color: var(--primary)"></i>
+        Workspace
+      </div>
+      
+      <ul class="sidebar-nav">
+        <li class="nav-item active" data-view="dashboard">
+          <i data-lucide="layout-dashboard"></i> Visão Geral
+        </li>
+        <li class="nav-item" data-view="blog">
+          <i data-lucide="file-text"></i> Publicações (Blog)
+        </li>
+        <li class="nav-item" data-view="portfolio">
+          <i data-lucide="briefcase"></i> Projetos (Portfólio)
+        </li>
+      </ul>
+      
+      <div class="sidebar-footer">
+        <ul class="sidebar-nav">
+          <li class="nav-item" id="btn-logout" style="color: var(--danger) !important; padding: 12px 16px;">
+            <i data-lucide="log-out"></i> Encerrar Sessão
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      
+      <!-- Views -->
+      <div id="view-dashboard" class="view-section">
+        <div class="page-header">
+          <h1 class="page-title">Dashboard</h1>
+        </div>
+        <div class="dashboard-grid">
+          <div class="dash-card" onclick="switchView('blog')">
+            <div class="dash-icon"><i data-lucide="file-text"></i></div>
+            <h4 style="margin: 0; font-size: 20px; font-weight: 600;">Blog e Notícias</h4>
+            <p style="margin: 0; font-size: 15px; color: var(--text-secondary); line-height: 1.5;">Gerencie seus artigos, tutoriais e publicações. Crie textos com o editor avançado.</p>
+          </div>
+          <div class="dash-card" onclick="switchView('portfolio')">
+            <div class="dash-icon"><i data-lucide="briefcase"></i></div>
+            <h4 style="margin: 0; font-size: 20px; font-weight: 600;">Projetos do Portfólio</h4>
+            <p style="margin: 0; font-size: 15px; color: var(--text-secondary); line-height: 1.5;">Cadastre novos cases de sucesso, integrações e sites desenvolvidos na sua carreira.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOG VIEW -->
+      <div id="view-blog" class="view-section hidden">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Blog</h1>
+            <p class="text-secondary mt-2 mb-0">Gerencie todas as publicações do seu blog.</p>
+          </div>
+          <button class="btn-saas" onclick="openBlogForm()">
+            <i data-lucide="plus"></i> Nova Publicação
+          </button>
+        </div>
+        
+        <div id="blog-grid-view" class="saas-card">
+          <div class="table-responsive">
+            <table class="table-modern">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Título da Publicação</th>
+                  <th>Categoria</th>
+                  <th class="text-end">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="blog-tbody">
+                <!-- Data injected by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <div id="blog-form-view" class="saas-card hidden">
+          <div class="d-flex justify-content-between align-items-center mb-5 border-bottom pb-4">
+            <h4 id="blog-form-title" class="m-0" style="font-weight: 700; font-size: 20px;">Nova Publicação</h4>
+            <button class="btn-saas btn-saas-outline" onclick="closeBlogForm()">Cancelar edição</button>
+          </div>
+          <form id="blog-form">
+            <input type="hidden" id="blog-id">
+            <div class="row g-4 mb-4">
+              <div class="col-md-12">
+                <label class="form-label">Título da Publicação</label>
+                <input type="text" id="blog-title" class="form-control" required placeholder="Escreva um título chamativo">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Categoria (Tag)</label>
+                <input type="text" id="blog-tag" class="form-control" required placeholder="Ex: Tecnologia, Pessoal, Dicas...">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">URL da Imagem de Capa</label>
+                <input type="url" id="blog-imgHeader" class="form-control" placeholder="https://...">
+              </div>
+            </div>
+            <div class="mb-5">
+              <label class="form-label">Conteúdo do Post</label>
+              <div id="blog-editor-container" style="height: 400px; border-radius: 0 0 8px 8px;"></div>
+            </div>
+            <div class="d-flex justify-content-end">
+              <button type="submit" class="btn-saas" style="padding: 12px 24px; font-size: 15px;">Salvar Publicação</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- PORTFOLIO VIEW -->
+      <div id="view-portfolio" class="view-section hidden">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Projetos do Portfólio</h1>
+            <p class="text-secondary mt-2 mb-0">Cadastre e exiba seus melhores trabalhos.</p>
+          </div>
+          <button class="btn-saas" onclick="openProjectForm()">
+            <i data-lucide="plus"></i> Novo Projeto
+          </button>
+        </div>
+        
+        <div id="project-grid-view" class="saas-card">
+          <div class="table-responsive">
+            <table class="table-modern">
+              <thead>
+                <tr>
+                  <th style="width: 80px;">Capa</th>
+                  <th>Título do Projeto</th>
+                  <th>Categoria</th>
+                  <th class="text-end">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="project-tbody">
+                <!-- Data injected by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <div id="project-form-view" class="saas-card hidden">
+          <div class="d-flex justify-content-between align-items-center mb-5 border-bottom pb-4">
+            <h4 id="project-form-title" class="m-0" style="font-weight: 700; font-size: 20px;">Novo Projeto</h4>
+            <button class="btn-saas btn-saas-outline" onclick="closeProjectForm()">Cancelar edição</button>
+          </div>
+          <form id="project-form">
+            <input type="hidden" id="proj-id">
+            <div class="row g-4 mb-4">
+              <div class="col-md-6">
+                <label class="form-label">Título do Projeto</label>
+                <input type="text" id="proj-title" class="form-control" required placeholder="Nome do sistema ou site">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Categoria (Filtro do site)</label>
+                <select id="proj-category" class="form-select" required>
+                  <option value="">Selecione a categoria principal...</option>
+                  <option value="filter-api">Integração / API</option>
+                  <option value="filter-plataform">Plataforma / Sistema Web</option>
+                  <option value="filter-site">Site Institucional / Landing Page</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">URL da Imagem ou GIF (Capa)</label>
+                <input type="url" id="proj-image" class="form-control" required placeholder="https://... (.jpg, .png, .gif)">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Link Externo (Opcional)</label>
+                <input type="url" id="proj-link" class="form-control" placeholder="URL para acessar o projeto ou Github">
+              </div>
+              <div class="col-md-12">
+                <label class="form-label">Descrição Resumida</label>
+                <textarea id="proj-description" class="form-control" rows="4" required placeholder="Conte brevemente o que este projeto faz e as tecnologias usadas..."></textarea>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end">
+              <button type="submit" class="btn-saas" style="padding: 12px 24px; font-size: 15px;">Salvar Projeto</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
   <script>
-    // Global error handler to catch script crashes
+    // Initialize Icons
+    lucide.createIcons();
+
+    // Global Error Handler
     window.addEventListener('error', function(e) {
-      alert("Erro global capturado: " + e.message);
+      showToast("Erro inesperado: " + e.message, 'danger');
     });
+
+    // Toast System
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'saas-toast';
+      
+      let icon = type === 'success' ? 'check-circle-2' : 'alert-circle';
+      let color = type === 'success' ? '#10b981' : '#ef4444';
+      
+      toast.innerHTML = `
+        <i data-lucide="${icon}" style="color: ${color}; width: 20px; height: 20px;"></i>
+        <span style="font-size: 14px; font-weight: 500;">${message}</span>
+      `;
+      
+      container.appendChild(toast);
+      lucide.createIcons({ root: toast });
+      
+      // Trigger animation
+      setTimeout(() => toast.classList.add('show'), 10);
+      
+      setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
 
     try {
-      // Initialize Supabase
+      // Supabase Init
       const SUPABASE_URL = 'https://pyibnkqafmoeypjpbhwr.supabase.co';
       const SUPABASE_KEY = 'sb_publishable_cwUyRtxb_cRsQTp3x-Lm9A_JavaOLts';
-      const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+      const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    // Initialize Quill Editor
-    const quill = new Quill('#editor-container', {
-      theme: 'snow',
-      placeholder: 'Escreva o conteúdo do post aqui...',
-      modules: {
-        toolbar: [
-          [{ 'header': [2, 3, false] }],
-          ['bold', 'italic', 'underline', 'strike'],
-          [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-          ['link', 'blockquote', 'code-block'],
-          ['clean']
-        ]
-      }
-    });
+      let currentSession = null;
 
-    // DOM Elements
-    const loginPanel = document.getElementById('login-panel');
-    const dashboardPanel = document.getElementById('dashboard-panel');
-    const loginForm = document.getElementById('login-form');
-    const loginError = document.getElementById('login-error');
-    const dashAlert = document.getElementById('dash-alert');
-    
-    const gridView = document.getElementById('grid-view');
-    const formView = document.getElementById('form-view');
-    const postsTbody = document.getElementById('posts-tbody');
-    const postForm = document.getElementById('post-form');
-
-    let currentSession = null;
-
-    // Toggle Password Visibility
-    const togglePassword = document.getElementById('togglePassword');
-    const passwordInput = document.getElementById('password');
-    const toggleIcon = document.getElementById('toggleIcon');
-    
-    togglePassword.addEventListener('click', function () {
-      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-      passwordInput.setAttribute('type', type);
-      toggleIcon.className = type === 'password' ? 'bi bi-eye' : 'bi bi-eye-slash';
-    });
-
-    // Check Auth State on Load
-    supabaseClient.auth.getSession().then(({ data: { session } }) => {
-      currentSession = session;
-      togglePanels();
-    });
-
-    supabaseClient.auth.onAuthStateChange((_event, session) => {
-      currentSession = session;
-      togglePanels();
-    });
-
-    function togglePanels() {
-      if (currentSession) {
-        loginPanel.classList.add('hidden');
-        dashboardPanel.classList.remove('hidden');
-        loadPosts();
-      } else {
-        loginPanel.classList.remove('hidden');
-        dashboardPanel.classList.add('hidden');
-      }
-    }
-
-    // Login Handle
-    document.getElementById('login-btn').addEventListener('click', async (e) => {
-      e.preventDefault();
-      loginError.classList.add('hidden');
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-
-      if(!email || !password) {
-        loginError.textContent = 'Preencha email e senha.';
-        loginError.classList.remove('hidden');
-        return;
-      }
-
-      const { data, error } = await supabaseClient.auth.signInWithPassword({
-        email,
-        password,
+      // Quill Editor Init
+      const quill = new Quill('#blog-editor-container', {
+        theme: 'snow',
+        placeholder: 'Comece a digitar o conteúdo da publicação...',
+        modules: { toolbar: [ [{ 'header': [2, 3, false] }], ['bold', 'italic', 'underline', 'strike'], [{'list': 'ordered'}, {'list': 'bullet'}], ['link', 'blockquote', 'code-block'], ['clean'] ] }
       });
 
-      if (error) {
-        loginError.textContent = 'Erro ao logar: ' + error.message;
-        loginError.classList.remove('hidden');
-      }
-    });
-
-    // Logout
-    document.getElementById('btn-logout').addEventListener('click', async () => {
-      await supabaseClient.auth.signOut();
-    });
-
-    // Show Alert
-    function showAlert(msg, type='success') {
-      dashAlert.textContent = msg;
-      dashAlert.className = `alert alert-${type} mt-3`;
-      setTimeout(() => dashAlert.classList.add('hidden'), 4000);
-    }
-
-    // Load Posts
-    async function loadPosts() {
-      const { data, error } = await supabaseClient
-        .from('posts')
-        .select('*')
-        .order('id', { ascending: false });
-
-      if (error) {
-        showAlert('Erro ao buscar posts: ' + error.message, 'danger');
-        return;
-      }
-
-      postsTbody.innerHTML = '';
-      if(data.length === 0) {
-        postsTbody.innerHTML = '<tr><td colspan="4" class="text-center text-muted">Nenhum post encontrado.</td></tr>';
-        return;
-      }
-
-      data.forEach(post => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td>${post.id}</td>
-          <td class="fw-bold">${post.title}</td>
-          <td><span class="badge bg-secondary">${post.tag}</span></td>
-          <td class="action-btns">
-            <button class="btn btn-sm btn-outline-primary" onclick='editPost(${JSON.stringify(post).replace(/'/g, "&apos;")})'><i class="bi bi-pencil"></i></button>
-            <button class="btn btn-sm btn-outline-danger" onclick='deletePost(${post.id})'><i class="bi bi-trash"></i></button>
-          </td>
-        `;
-        postsTbody.appendChild(tr);
-      });
-    }
-
-    // Toggle Views
-    document.getElementById('btn-new-post').addEventListener('click', () => {
-      document.getElementById('form-title').textContent = 'Novo Post';
-      postForm.reset();
-      document.getElementById('post-id').value = '';
-      quill.root.innerHTML = '';
-      gridView.classList.add('hidden');
-      formView.classList.remove('hidden');
-    });
-
-    document.getElementById('btn-cancel').addEventListener('click', (e) => {
-      e.preventDefault();
-      gridView.classList.remove('hidden');
-      formView.classList.add('hidden');
-    });
-
-    // Save Post (Insert or Update)
-    postForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const id = document.getElementById('post-id').value;
-      const title = document.getElementById('post-title').value;
-      const tag = document.getElementById('post-tag').value;
-      const imgHeader = document.getElementById('post-imgHeader').value;
-      const content = quill.root.innerHTML;
-
-      const postData = {
-        title, tag, imgHeader, content, images: []
-      };
-
-      let result;
-      if (id) {
-        // Update
-        result = await supabaseClient.from('posts').update(postData).eq('id', parseInt(id));
-      } else {
-        // Insert
-        result = await supabaseClient.from('posts').insert([postData]);
-      }
-
-      if (result.error) {
-        showAlert('Erro ao salvar: ' + result.error.message, 'danger');
-      } else {
-        showAlert('Post salvo com sucesso!');
-        gridView.classList.remove('hidden');
-        formView.classList.add('hidden');
-        loadPosts();
-      }
-    });
-
-    // Edit Post
-    window.editPost = function(post) {
-      document.getElementById('form-title').textContent = 'Editar Post';
-      document.getElementById('post-id').value = post.id;
-      document.getElementById('post-title').value = post.title;
-      document.getElementById('post-tag').value = post.tag;
-      document.getElementById('post-imgHeader').value = post.imgHeader || '';
-      quill.root.innerHTML = post.content || '';
+      // DOM Elements
+      const loginPanel = document.getElementById('login-panel');
+      const appPanel = document.getElementById('app-panel');
       
-      gridView.classList.add('hidden');
-      formView.classList.remove('hidden');
-    };
-
-    // Delete Post
-    window.deletePost = async function(id) {
-      if (confirm('Tem certeza que deseja excluir esta publicação?')) {
-        const { error } = await supabaseClient.from('posts').delete().eq('id', id);
-        if (error) {
-          showAlert('Erro ao excluir: ' + error.message, 'danger');
+      // Password Toggle
+      document.getElementById('togglePassword').addEventListener('click', () => {
+        const input = document.getElementById('password');
+        const icon = document.getElementById('toggleIcon');
+        if (input.type === 'password') {
+          input.type = 'text';
+          icon.setAttribute('data-lucide', 'eye-off');
         } else {
-          showAlert('Post excluído com sucesso!');
-          loadPosts();
+          input.type = 'password';
+          icon.setAttribute('data-lucide', 'eye');
+        }
+        lucide.createIcons({ root: document.getElementById('togglePassword') });
+      });
+
+      // Navigation Logic
+      const navItems = document.querySelectorAll('.nav-item[data-view]');
+      const views = document.querySelectorAll('.view-section');
+      
+      function switchView(viewId) {
+        views.forEach(v => v.classList.add('hidden'));
+        document.getElementById(`view-${viewId}`).classList.remove('hidden');
+        
+        navItems.forEach(item => {
+          if(item.dataset.view === viewId) item.classList.add('active');
+          else item.classList.remove('active');
+        });
+      }
+      
+      navItems.forEach(item => {
+        item.addEventListener('click', () => switchView(item.dataset.view));
+      });
+
+      // Auth Logic
+      supabase.auth.getSession().then(({ data: { session } }) => {
+        currentSession = session;
+        toggleApp();
+      });
+
+      supabase.auth.onAuthStateChange((_event, session) => {
+        currentSession = session;
+        toggleApp();
+      });
+
+      function toggleApp() {
+        if (currentSession) {
+          loginPanel.classList.add('hidden');
+          appPanel.classList.remove('hidden');
+          loadBlogs();
+          loadProjects();
+        } else {
+          loginPanel.classList.remove('hidden');
+          appPanel.classList.add('hidden');
         }
       }
-    };
-    
+
+      // Login Event
+      document.getElementById('login-btn').addEventListener('click', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const errorEl = document.getElementById('login-error');
+        errorEl.classList.add('hidden');
+
+        if(!email || !password) {
+          errorEl.textContent = 'Preencha todos os campos.';
+          errorEl.classList.remove('hidden');
+          return;
+        }
+        
+        document.getElementById('login-btn').textContent = 'Autenticando...';
+
+        const { error } = await supabase.auth.signInWithPassword({ email, password });
+        
+        document.getElementById('login-btn').textContent = 'Entrar no sistema';
+        
+        if (error) {
+          errorEl.textContent = 'Credenciais inválidas: ' + error.message;
+          errorEl.classList.remove('hidden');
+        } else {
+          showToast('Sessão iniciada com sucesso!');
+        }
+      });
+
+      // Logout Event
+      document.getElementById('btn-logout').addEventListener('click', async () => {
+        await supabase.auth.signOut();
+        showToast('Sessão encerrada de forma segura.');
+      });
+
+
+      /* ==========================================
+         BLOG MODULE
+         ========================================== */
+      window.openBlogForm = function(post = null) {
+        document.getElementById('blog-grid-view').classList.add('hidden');
+        document.getElementById('blog-form-view').classList.remove('hidden');
+        
+        if (post) {
+          document.getElementById('blog-form-title').textContent = 'Editar Publicação';
+          document.getElementById('blog-id').value = post.id;
+          document.getElementById('blog-title').value = post.title;
+          document.getElementById('blog-tag').value = post.tag;
+          document.getElementById('blog-imgHeader').value = post.imgHeader || '';
+          quill.root.innerHTML = post.content || '';
+        } else {
+          document.getElementById('blog-form-title').textContent = 'Nova Publicação';
+          document.getElementById('blog-form').reset();
+          document.getElementById('blog-id').value = '';
+          quill.root.innerHTML = '';
+        }
+      }
+      
+      window.closeBlogForm = function() {
+        document.getElementById('blog-grid-view').classList.remove('hidden');
+        document.getElementById('blog-form-view').classList.add('hidden');
+      }
+
+      async function loadBlogs() {
+        const tbody = document.getElementById('blog-tbody');
+        tbody.innerHTML = '<tr><td colspan="4" class="text-center py-5 text-secondary"><div class="spinner-border spinner-border-sm me-2"></div> Carregando...</td></tr>';
+        
+        const { data, error } = await supabase.from('posts').select('*').order('id', { ascending: false });
+        
+        if (error) {
+          showToast('Falha na conexão: ' + error.message, 'danger');
+          return;
+        }
+        
+        tbody.innerHTML = '';
+        if (data.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="4" class="text-center text-secondary py-5">Nenhum post publicado ainda.</td></tr>';
+          return;
+        }
+
+        data.forEach(post => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td class="text-secondary">#${post.id}</td>
+            <td style="font-weight: 500; color: var(--text-primary);">${post.title}</td>
+            <td><span class="badge bg-light text-secondary border fw-medium" style="border-radius: 6px; padding: 6px 10px;">${post.tag}</span></td>
+            <td class="text-end">
+              <button class="btn btn-sm btn-light border me-2" style="font-weight: 500;" onclick='openBlogForm(${JSON.stringify(post).replace(/'/g, "&apos;")})'>Editar</button>
+              <button class="btn btn-sm btn-outline-danger" style="font-weight: 500;" onclick='deleteBlog(${post.id})'>Excluir</button>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      document.getElementById('blog-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const id = document.getElementById('blog-id').value;
+        const postData = {
+          title: document.getElementById('blog-title').value,
+          tag: document.getElementById('blog-tag').value,
+          imgHeader: document.getElementById('blog-imgHeader').value,
+          content: quill.root.innerHTML,
+          images: []
+        };
+
+        let result;
+        if (id) result = await supabase.from('posts').update(postData).eq('id', parseInt(id));
+        else result = await supabase.from('posts').insert([postData]);
+
+        if (result.error) {
+          showToast('Erro ao salvar: ' + result.error.message, 'danger');
+        } else {
+          showToast('Publicação salva com sucesso!');
+          closeBlogForm();
+          loadBlogs();
+        }
+      });
+
+      window.deleteBlog = async function(id) {
+        if (confirm('Atenção: A exclusão é irreversível. Deseja prosseguir?')) {
+          const { error } = await supabase.from('posts').delete().eq('id', id);
+          if (error) showToast('Falha ao excluir: ' + error.message, 'danger');
+          else {
+            showToast('Registro apagado com sucesso.');
+            loadBlogs();
+          }
+        }
+      }
+
+      /* ==========================================
+         PROJECTS (PORTFOLIO) MODULE
+         ========================================== */
+      window.openProjectForm = function(proj = null) {
+        document.getElementById('project-grid-view').classList.add('hidden');
+        document.getElementById('project-form-view').classList.remove('hidden');
+        
+        if (proj) {
+          document.getElementById('project-form-title').textContent = 'Editar Projeto';
+          document.getElementById('proj-id').value = proj.id;
+          document.getElementById('proj-title').value = proj.title;
+          document.getElementById('proj-category').value = proj.category;
+          document.getElementById('proj-image').value = proj.image_url || '';
+          document.getElementById('proj-link').value = proj.project_link || '';
+          document.getElementById('proj-description').value = proj.description || '';
+        } else {
+          document.getElementById('project-form-title').textContent = 'Novo Projeto';
+          document.getElementById('project-form').reset();
+          document.getElementById('proj-id').value = '';
+        }
+      }
+
+      window.closeProjectForm = function() {
+        document.getElementById('project-grid-view').classList.remove('hidden');
+        document.getElementById('project-form-view').classList.add('hidden');
+      }
+
+      async function loadProjects() {
+        const tbody = document.getElementById('project-tbody');
+        tbody.innerHTML = '<tr><td colspan="4" class="text-center py-5 text-secondary"><div class="spinner-border spinner-border-sm me-2"></div> Carregando...</td></tr>';
+        
+        const { data, error } = await supabase.from('projects').select('*').order('id', { ascending: false });
+        
+        if (error) {
+          if(error.code === '42P01') {
+            tbody.innerHTML = '<tr><td colspan="4" class="text-center py-5"><i data-lucide="database" style="color: var(--text-secondary); width: 32px; height: 32px; margin-bottom: 12px;"></i><br><span class="text-secondary">A tabela "projects" ainda não existe. Execute o script SQL no Supabase.</span></td></tr>';
+            lucide.createIcons({ root: tbody });
+          } else {
+            showToast('Erro na conexão: ' + error.message, 'danger');
+          }
+          return;
+        }
+        
+        tbody.innerHTML = '';
+        if (data.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="4" class="text-center text-secondary py-5">Seu portfólio está vazio. Cadastre o primeiro projeto!</td></tr>';
+          return;
+        }
+
+        const categoryLabels = {
+          'filter-api': 'Integração',
+          'filter-plataform': 'Plataforma',
+          'filter-site': 'Site Institucional'
+        };
+
+        data.forEach(proj => {
+          let catLabel = categoryLabels[proj.category] || proj.category;
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>
+              <div style="width: 48px; height: 48px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border);">
+                <img src="${proj.image_url}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://placehold.co/48x48?text=Img'">
+              </div>
+            </td>
+            <td style="font-weight: 500; color: var(--text-primary);">${proj.title}</td>
+            <td><span class="badge bg-light text-secondary border fw-medium" style="border-radius: 6px; padding: 6px 10px;">${catLabel}</span></td>
+            <td class="text-end">
+              <button class="btn btn-sm btn-light border me-2" style="font-weight: 500;" onclick='openProjectForm(${JSON.stringify(proj).replace(/'/g, "&apos;")})'>Editar</button>
+              <button class="btn btn-sm btn-outline-danger" style="font-weight: 500;" onclick='deleteProject(${proj.id})'>Excluir</button>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      document.getElementById('project-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const id = document.getElementById('proj-id').value;
+        const projData = {
+          title: document.getElementById('proj-title').value,
+          category: document.getElementById('proj-category').value,
+          image_url: document.getElementById('proj-image').value,
+          project_link: document.getElementById('proj-link').value,
+          description: document.getElementById('proj-description').value,
+        };
+
+        let result;
+        if (id) result = await supabase.from('projects').update(projData).eq('id', parseInt(id));
+        else result = await supabase.from('projects').insert([projData]);
+
+        if (result.error) {
+          showToast('Falha na gravação: ' + result.error.message, 'danger');
+        } else {
+          showToast('Registro salvo com sucesso!');
+          closeProjectForm();
+          loadProjects();
+        }
+      });
+
+      window.deleteProject = async function(id) {
+        if (confirm('Atenção: A exclusão é irreversível. Deseja prosseguir?')) {
+          const { error } = await supabase.from('projects').delete().eq('id', id);
+          if (error) showToast('Falha ao excluir: ' + error.message, 'danger');
+          else {
+            showToast('Registro apagado com sucesso.');
+            loadProjects();
+          }
+        }
+      }
+
     } catch(err) {
-      alert("Erro na inicialização: " + err.message);
+      console.error(err);
+      alert("Erro crítico de inicialização: " + err.message);
     }
   </script>
 </body>

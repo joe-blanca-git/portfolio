@@ -787,207 +787,199 @@
 
     <!-- Portfólio Section -->
     <section id="portfolio" class="portfolio section">
+      <style>
+        .project-card-premium {
+          border-radius: 16px;
+          overflow: hidden;
+          position: relative;
+          background: rgba(255, 255, 255, 0.02);
+          border: none;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          display: flex;
+          flex-direction: column;
+          height: 480px;
+        }
+        .project-card-premium:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        .project-img-wrapper {
+          width: 100%;
+          height: 200px;
+          overflow: hidden;
+          position: relative;
+          background: #f8fafc;
+        }
+        .project-img-wrapper img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.6s ease;
+        }
+        .project-card-premium:hover .project-img-wrapper img {
+          transform: scale(1.05);
+        }
+        .project-content {
+          padding: 24px;
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+          background: #fff;
+        }
+        .project-category {
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-weight: 700;
+          color: #2563eb;
+          margin-bottom: 10px;
+        }
+        .project-title {
+          font-size: 20px;
+          font-weight: 700;
+          margin-bottom: 12px;
+          color: #1e293b;
+        }
+        .project-desc {
+          font-size: 14.5px;
+          color: #64748b;
+          line-height: 1.6;
+          margin-bottom: 24px;
+          flex-grow: 1;
+          text-align: justify;
+        }
+        .project-link-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 14px;
+          font-weight: 600;
+          color: #1e293b;
+          text-decoration: none;
+          transition: color 0.3s;
+          margin-top: auto;
+        }
+        .project-link-btn i {
+          transition: transform 0.3s;
+        }
+        .project-link-btn:hover {
+          color: #2563eb;
+        }
+        .project-link-btn:hover i {
+          transform: translateX(4px);
+        }
+        
+        /* Filters */
+        .portfolio-filters-modern {
+          display: flex;
+          justify-content: center;
+          gap: 12px;
+          margin-bottom: 40px;
+          flex-wrap: wrap;
+          padding: 0;
+          list-style: none;
+        }
+        .portfolio-filters-modern li {
+          cursor: pointer;
+          padding: 8px 24px;
+          border-radius: 50px;
+          font-size: 14px;
+          font-weight: 600;
+          background: rgba(0,0,0,0.05);
+          color: #475569;
+          transition: all 0.3s;
+        }
+        .portfolio-filters-modern li:hover, .portfolio-filters-modern li.filter-active {
+          background: #2563eb;
+          color: white;
+          box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+        
+        /* Skeleton */
+        .skeleton {
+          background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+          background-size: 200% 100%;
+          animation: skeleton-loading 1.5s infinite;
+          border-radius: 4px;
+        }
+        @keyframes skeleton-loading {
+          0% { background-position: 200% 0; }
+          100% { background-position: -200% 0; }
+        }
+      </style>
+
       <!-- Section Title -->
       <div class="container section-title">
         <h2>Portfólio</h2>
+        <p>Projetos e Cases de Sucesso</p>
       </div>
-      <!-- End Section Title -->
 
-      <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="200">
-            <li data-filter="*" class="filter-active">
-              <i class="bi bi-grid-3x3"></i> Todos os Projetos
-            </li>
-            <li data-filter=".filter-api">Integrações</li>
-            <li data-filter=".filter-plataform">Plataformas</li>
-            <li data-filter=".filter-site">Sites</li>
-          </ul>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        
+        <ul class="portfolio-filters-modern" id="portfolio-filters">
+          <li data-filter="*" class="filter-active">Todos</li>
+          <li data-filter=".filter-api">Integrações</li>
+          <li data-filter=".filter-plataform">Plataformas</li>
+          <li data-filter=".filter-site">Sites</li>
+        </ul>
 
-          <div class="row g-4 isotope-container" data-aos="fade-up" data-aos-delay="300">
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-site">
-              <article class="portfolio-entry">
-                <figure class="entry-image">
-                  <img src="assets/img/portfolio/3.gif" class="img-fluid" alt="" loading="lazy" />
-                  <div class="entry-overlay">
-                    <div class="overlay-content">
-                      <div class="entry-meta">Site Institucional</div>
-                      <h3 class="entry-title">Bioferth</h3>
-                      <div class="entry-links">
-                        <a href="assets/img/portfolio/3.gif" class="glightbox" data-gallery="portfolio-gallery-ui"
-                          data-glightbox="title: Site Institucional desenvolvido para empresa Bioferth.">
-                          <i class="bi bi-arrows-angle-expand"></i>
-                        </a>
-                        <!-- <a href="portfolio-details.html">
-                          <i class="bi bi-arrow-right"></i>
-                        </a> -->
-                      </div>
-                    </div>
-                  </div>
-                </figure>
-              </article>
+        <div class="row g-4 isotope-container" id="projects-container">
+          <!-- Skeleton Loaders -->
+          <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+            <div class="project-card-premium">
+              <div class="project-img-wrapper skeleton" style="border-radius: 0;"></div>
+              <div class="project-content">
+                <div class="skeleton" style="width: 40%; height: 16px; margin-bottom: 12px;"></div>
+                <div class="skeleton" style="width: 80%; height: 24px; margin-bottom: 16px;"></div>
+                <div class="skeleton" style="width: 100%; height: 60px; margin-bottom: 24px;"></div>
+              </div>
             </div>
-            <!-- End Portfólio Item -->
-
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-site">
-              <article class="portfolio-entry">
-                <figure class="entry-image">
-                  <img src="assets/img/portfolio/4.gif" class="img-fluid" alt="" loading="lazy" />
-                  <div class="entry-overlay">
-                    <div class="overlay-content">
-                      <div class="entry-meta">Site Institucional</div>
-                      <h3 class="entry-title">Aromatran</h3>
-                      <div class="entry-links">
-                        <a href="assets/img/portfolio/4.gif" class="glightbox"
-                          data-gallery="portfolio-gallery-development"
-                          data-glightbox="title: Site Institucional desenvolvido para o produto Aromatran">
-                          <i class="bi bi-arrows-angle-expand"></i>
-                        </a>
-                        <!-- <a href="portfolio-details.html">
-                          <i class="bi bi-arrow-right"></i>
-                        </a> -->
-                      </div>
-                    </div>
-                  </div>
-                </figure>
-              </article>
-            </div>
-            <!-- End Portfólio Item -->
-
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-plataform">
-              <article class="portfolio-entry">
-                <figure class="entry-image">
-                  <img src="assets/img/portfolio/2.gif" class="img-fluid" alt="" loading="lazy" />
-                  <div class="entry-overlay">
-                    <div class="overlay-content">
-                      <div class="entry-meta">Plataforma de Cursos</div>
-                      <h3 class="entry-title">Instituto Theos</h3>
-                      <div class="entry-links">
-                        <a href="assets/img/portfolio/2.gif" class="glightbox"
-                          data-gallery="portfolio-gallery-photography"
-                          data-glightbox="title: Urban Architecture; description: Sed ut perspiciatis unde omnis iste natus error sit voluptatem.">
-                          <i class="bi bi-arrows-angle-expand"></i>
-                        </a>
-                        <!-- <a href="portfolio-details.html">
-                          <i class="bi bi-arrow-right"></i>
-                        </a> -->
-                      </div>
-                    </div>
-                  </div>
-                </figure>
-              </article>
-            </div>
-            <!-- End Portfólio Item -->
-
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-api">
-              <article class="portfolio-entry">
-                <figure class="entry-image">
-                  <img src="assets/img/portfolio/1.gif" class="img-fluid" alt="" loading="lazy" />
-                  <div class="entry-overlay">
-                    <div class="overlay-content">
-                      <div class="entry-meta">Integração</div>
-                      <h3 class="entry-title">
-                        Usina Alta Mogiana e Operations Center
-                      </h3>
-                      <div class="entry-links">
-                        <a href="assets/img/portfolio/1.gif" class="glightbox"
-                          data-gallery="portfolio-gallery-marketing"
-                          data-glightbox="title: Integração entre a Usina Alta Mogiana e Operations Center.">
-                          <i class="bi bi-arrows-angle-expand"></i>
-                        </a>
-                        <!-- <a href="portfolio-details.html">
-                          <i class="bi bi-arrow-right"></i>
-                        </a> -->
-                      </div>
-                    </div>
-                  </div>
-                </figure>
-              </article>
-            </div>
-            <!-- End Portfólio Item -->
-
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-api">
-              <article class="portfolio-entry">
-                <figure class="entry-image">
-                  <img src="assets/img/portfolio/6.gif" class="img-fluid" alt="" loading="lazy" />
-                  <div class="entry-overlay">
-                    <div class="overlay-content">
-                      <div class="entry-meta">Integração</div>
-                      <h3 class="entry-title">
-                        Usina Alta Mogiana e Bem Agro
-                      </h3>
-                      <div class="entry-links">
-                        <a href="assets/img/portfolio/6.gif" class="glightbox"
-                          data-gallery="portfolio-gallery-marketing"
-                          data-glightbox="title: Integração entre a Usina Alta Mogiana e Bem Agro.">
-                          <i class="bi bi-arrows-angle-expand"></i>
-                        </a>
-                        <!-- <a href="portfolio-details.html">
-                          <i class="bi bi-arrow-right"></i>
-                        </a> -->
-                      </div>
-                    </div>
-                  </div>
-                </figure>
-              </article>
-            </div>
-            <!-- End Portfólio Item -->
-
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-api">
-              <article class="portfolio-entry">
-                <figure class="entry-image">
-                  <img src="assets/img/portfolio/5.gif" class="img-fluid" alt="" loading="lazy" />
-                  <div class="entry-overlay">
-                    <div class="overlay-content">
-                      <div class="entry-meta">Integração</div>
-                      <h3 class="entry-title">
-                        Usina Alta Mogiana e Bem Agro
-                      </h3>
-                      <div class="entry-links">
-                        <a href="assets/img/portfolio/5.gif" class="glightbox"
-                          data-gallery="portfolio-gallery-marketing"
-                          data-glightbox="title: Integração entre a Usina Alta Mogiana e Bem Agro.">
-                          <i class="bi bi-arrows-angle-expand"></i>
-                        </a>
-                        <!-- <a href="portfolio-details.html">
-                          <i class="bi bi-arrow-right"></i>
-                        </a> -->
-                      </div>
-                    </div>
-                  </div>
-                </figure>
-              </article>
-            </div>
-            <!-- End Portfólio Item -->
-
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-photography">
-              <article class="portfolio-entry">
-                <figure class="entry-image">
-                  <img src="assets/img/portfolio/7.gif" class="img-fluid" alt="" loading="lazy" />
-                  <div class="entry-overlay">
-                    <div class="overlay-content">
-                      <div class="entry-meta">Integração</div>
-                      <h3 class="entry-title">
-                        Usina Alta Mogiana e Health & Safety
-                      </h3>
-                      <div class="entry-links">
-                        <a href="assets/img/portfolio/7.gif" class="glightbox"
-                          data-gallery="portfolio-gallery-marketing"
-                          data-glightbox="title: Integração entre a Usina Alta Mogiana e Health & Safety.">
-                          <i class="bi bi-arrows-angle-expand"></i>
-                        </a>
-                        <!-- <a href="portfolio-details.html">
-                          <i class="bi bi-arrow-right"></i>
-                        </a> -->
-                      </div>
-                    </div>
-                  </div>
-                </figure>
-              </article>
-            </div>
-            <!-- End Portfólio Item -->
           </div>
-          <!-- End Portfólio Container -->
+          <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+            <div class="project-card-premium">
+              <div class="project-img-wrapper skeleton" style="border-radius: 0;"></div>
+              <div class="project-content">
+                <div class="skeleton" style="width: 40%; height: 16px; margin-bottom: 12px;"></div>
+                <div class="skeleton" style="width: 80%; height: 24px; margin-bottom: 16px;"></div>
+                <div class="skeleton" style="width: 100%; height: 60px; margin-bottom: 24px;"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+            <div class="project-card-premium">
+              <div class="project-img-wrapper skeleton" style="border-radius: 0;"></div>
+              <div class="project-content">
+                <div class="skeleton" style="width: 40%; height: 16px; margin-bottom: 12px;"></div>
+                <div class="skeleton" style="width: 80%; height: 24px; margin-bottom: 16px;"></div>
+                <div class="skeleton" style="width: 100%; height: 60px; margin-bottom: 24px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Portfolio Modal -->
+      <div class="modal fade" id="portfolioModal" tabindex="-1" aria-labelledby="portfolioModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content" style="border-radius: 16px; border: none; box-shadow: 0 20px 50px rgba(0,0,0,0.2);">
+            <div class="modal-header border-bottom-0 pb-0">
+              <h5 class="modal-title fw-bold text-primary" id="portfolioModalLabel" style="font-size: 24px;"></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pt-3">
+              <div class="mb-3 text-center">
+                <img id="portfolioModalImg" src="" class="img-fluid rounded shadow-sm" style="max-height: 400px; width: 100%; object-fit: cover;" alt="">
+              </div>
+              <div class="mb-3">
+                <span id="portfolioModalCategory" class="badge bg-secondary px-3 py-2" style="font-size: 12px; letter-spacing: 1px;"></span>
+              </div>
+              <p id="portfolioModalDesc" style="text-align: justify; color: #475569; line-height: 1.8; font-size: 15px; white-space: pre-wrap;"></p>
+            </div>
+            <div class="modal-footer border-top-0 pt-0">
+              <a id="portfolioModalLink" href="#" target="_blank" class="btn btn-primary px-4 py-2" style="border-radius: 8px; font-weight: 500; display: none;">Visitar Projeto <i class="bi bi-box-arrow-up-right ms-2"></i></a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1367,6 +1359,107 @@
           featuredContainer.innerHTML =
             '<p class="text-danger">Não foi possível carregar os posts.</p>';
         });
+
+      // Fetch Projects (Portfolio)
+      const projectsContainer = document.getElementById("projects-container");
+      if (projectsContainer) {
+        fetch("https://pyibnkqafmoeypjpbhwr.supabase.co/rest/v1/projects?select=*&order=id.desc", {
+          headers: {
+            "apikey": "sb_publishable_cwUyRtxb_cRsQTp3x-Lm9A_JavaOLts",
+            "Authorization": "Bearer sb_publishable_cwUyRtxb_cRsQTp3x-Lm9A_JavaOLts"
+          }
+        })
+        .then(response => {
+          if (!response.ok) throw new Error("Erro HTTP: " + response.status);
+          return response.json();
+        })
+        .then(projects => {
+          projectsContainer.innerHTML = "";
+          
+          if (!projects || projects.length === 0) {
+            projectsContainer.innerHTML = "<p class='text-secondary w-100 text-center py-5'>Nenhum projeto encontrado no portfólio.</p>";
+            return;
+          }
+
+          const categoryLabels = {
+            'filter-api': 'Integração',
+            'filter-plataform': 'Plataforma',
+            'filter-site': 'Site Institucional'
+          };
+
+          window.openProjectModal = function(title, image, category, desc, link) {
+            document.getElementById('portfolioModalLabel').innerText = title;
+            document.getElementById('portfolioModalImg').src = image;
+            document.getElementById('portfolioModalCategory').innerText = category;
+            document.getElementById('portfolioModalDesc').innerText = desc;
+            
+            const linkBtn = document.getElementById('portfolioModalLink');
+            if (link && link !== 'undefined' && link !== '' && link !== 'null') {
+              linkBtn.href = link;
+              linkBtn.style.display = 'inline-block';
+            } else {
+              linkBtn.style.display = 'none';
+            }
+            
+            const modal = new bootstrap.Modal(document.getElementById('portfolioModal'));
+            modal.show();
+          };
+
+          projects.forEach((proj, idx) => {
+            const catLabel = categoryLabels[proj.category] || proj.category;
+            
+            let desc = proj.description || '';
+            let truncatedDesc = desc.length > 130 ? desc.substring(0, 130) + '...' : desc;
+            
+            const encodedDesc = encodeURIComponent(desc);
+            const encodedLink = proj.project_link ? encodeURIComponent(proj.project_link) : '';
+            
+            const linkHtml = `<button onclick="openProjectModal('${proj.title.replace(/'/g, "\\'")}', '${proj.image_url}', '${catLabel}', decodeURIComponent('${encodedDesc}'), decodeURIComponent('${encodedLink}'))" class="btn btn-link project-link-btn p-0 text-decoration-none" style="text-align: left;">Mostrar mais... <i class="bi bi-arrow-right"></i></button>`;
+
+            const card = `
+              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item ${proj.category}">
+                <div class="project-card-premium" data-aos="fade-up" data-aos-delay="${100 + (idx * 50)}">
+                  <div class="project-img-wrapper">
+                    <img src="${proj.image_url}" alt="${proj.title}" onerror="this.src='https://placehold.co/400x300?text=Imagem'">
+                  </div>
+                  <div class="project-content">
+                    <div class="project-category">${catLabel}</div>
+                    <h3 class="project-title">${proj.title}</h3>
+                    <p class="project-desc">${truncatedDesc}</p>
+                    ${linkHtml}
+                  </div>
+                </div>
+              </div>
+            `;
+            projectsContainer.innerHTML += card;
+          });
+
+          // Re-init Isotope for filtering after dynamic content loads
+          setTimeout(() => {
+            let isotopeContainer = document.querySelector('.isotope-container');
+            if(isotopeContainer && typeof Isotope !== 'undefined') {
+              let iso = new Isotope(isotopeContainer, {
+                itemSelector: '.portfolio-item',
+                layoutMode: 'masonry'
+              });
+              
+              let filters = document.querySelectorAll('.portfolio-filters-modern li');
+              filters.forEach(filter => {
+                filter.addEventListener('click', function() {
+                  filters.forEach(f => f.classList.remove('filter-active'));
+                  this.classList.add('filter-active');
+                  iso.arrange({ filter: this.getAttribute('data-filter') });
+                });
+              });
+            }
+          }, 200);
+
+        })
+        .catch(error => {
+          console.error("Erro ao carregar projetos:", error);
+          projectsContainer.innerHTML = "<p class='text-danger w-100 text-center py-5'>A tabela projects ainda não existe no Supabase. Crie-a usando o script SQL.</p>";
+        });
+      }
     });
   </script>
 </body>
