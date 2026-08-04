@@ -52,52 +52,22 @@
       <div
         class="container-fluid position-relative d-flex align-items-center justify-content-between"
       >
-        <a href="index.html" class="logo d-flex align-items-center">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <!-- <img src="assets/img/logo.webp" alt=""> -->
-          <!-- Uncomment the line below if you also wish to use an text logo -->
-          <!-- <h1 class="sitename">Style</h1>  -->
-        </a>
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <!-- Uncomment the line below if you also wish to use an text logo -->
+        <h1 class="sitename">Joeder Blanca</h1>
+      </a>
 
-        <nav id="navmenu" class="navmenu">
-          <div class="profile-img">
-            <img
-              src="assets/img/profile/joe2.jpg"
-              alt=""
-              class="img-fluid rounded-circle"
-            />
-          </div>
-
-          <a
-            href="index.html"
-            class="logo d-flex align-items-center justify-content-center active"
-          >
-            <!-- Uncomment the line below if you also wish to use an image logo -->
-            <!-- <img src="assets/img/logo.webp" alt=""> -->
-            <h1 class="sitename">Joeder Blanca</h1>
-          </a>
-
-          <div class="social-links text-center">
-            <a href="https://www.instagram.com/joe_blanca/" class="instagram"
-              ><i class="bi bi-instagram"></i
-            ></a>
-            <a href="https://teams.microsoft.com/v2/" class="google-plus"
-              ><i class="bi bi-microsoft-teams"></i
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/joeder-blanca-032577201/"
-              class="linkedin"
-              ><i class="bi bi-linkedin"></i
-            ></a>
-          </div>
-
+      <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#hero">Home</a></li>
             <li><a href="index.html#about">Sobre mim</a></li>
-            <li><a href="index.html#events">Eventos</a></li>
             <li><a href="index.html#resume">Carreira</a></li>
+            <li><a href="index.html#blog">Blog</a></li>
             <li><a href="index.html#portfolio">Portfólio</a></li>
             <li><a href="index.html#contact">Contato</a></li>
+            <li><a href="admin.html">Admin</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
@@ -105,21 +75,7 @@
     </header>
 
     <main class="main">
-      <!-- Page Title -->
-      <div class="page-title light-background">
-        <div
-          class="container d-lg-flex justify-content-between align-items-center"
-        >
-          <h1 class="mb-2 mb-lg-0">Blog</h1>
-          <nav class="breadcrumbs">
-            <ol>
-              <li><a href="index.html">Home</a></li>
-              <li class="current">Blog</li>
-            </ol>
-          </nav>
-        </div>
-      </div>
-      <!-- End Page Title -->
+  
 
       <!-- Service Details Section -->
       <section id="service-details" class="service-details section hero" tyle="min-height: 100vh !important">
@@ -243,7 +199,12 @@
       const container = document.getElementById("posts-container");
       const summaryContainer = document.getElementById("summary-container");
 
-      fetch("assets/posts.json")
+      fetch("https://pyibnkqafmoeypjpbhwr.supabase.co/rest/v1/posts?select=*&order=id.desc", {
+        headers: {
+          "apikey": "sb_publishable_cwUyRtxb_cRsQTp3x-Lm9A_JavaOLts",
+          "Authorization": "Bearer sb_publishable_cwUyRtxb_cRsQTp3x-Lm9A_JavaOLts"
+        }
+      })
         .then((response) => response.json())
         .then((posts) => {
           const urlParams = new URLSearchParams(window.location.search);

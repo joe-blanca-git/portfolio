@@ -51,23 +51,6 @@
       </a>
 
       <nav id="navmenu" class="navmenu">
-        <div class="profile-img">
-          <img src="assets/img/profile/joe2.jpg" alt="" class="img-fluid rounded-circle" />
-        </div>
-
-        <a href="index.html" class="logo d-flex align-items-center justify-content-center active">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <!-- <img src="assets/img/logo.webp" alt=""> -->
-          <h1 class="sitename">Joeder Blanca</h1>
-        </a>
-
-        <div class="social-links text-center">
-          <a href="https://www.instagram.com/joe_blanca/" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="https://teams.microsoft.com/v2/" class="google-plus"><i class="bi bi-microsoft-teams"></i></a>
-          <a href="https://www.linkedin.com/in/joeder-blanca-032577201/" class="linkedin"><i
-              class="bi bi-linkedin"></i></a>
-        </div>
-
         <ul>
           <li><a href="#hero">Home</a></li>
           <li><a href="#about">Sobre mim</a></li>
@@ -75,7 +58,7 @@
           <li><a href="#blog">Blog</a></li>
           <li><a href="#portfolio">Portfólio</a></li>
           <li><a href="#contact">Contato</a></li>
-          <li><a href="post-blog.html" class="admin-link"><i class="bi bi-person-gear"></i> Admin</a></li>
+          <li><a href="admin.html">Admin</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -1249,9 +1232,17 @@
       function createFeaturedPost(post) {
         if (!post) return "";
 
-        const paragraphs = post.content.split("\n\n");
-        const description1 = paragraphs[0] || "";
-        const description2 = paragraphs[1] || "";
+        // Extrai apenas o texto puro do HTML salvo pelo editor
+        const tempDiv = document.createElement("div");
+        tempDiv.innerHTML = post.content || "";
+        let plainText = tempDiv.textContent || tempDiv.innerText || "";
+        
+        // Limita o tamanho do resumo
+        let summary = plainText;
+        if (summary.length > 250) {
+          summary = summary.substring(0, 250) + "...";
+        }
+
 
         return `
     <div class="skills-grid">
@@ -1278,8 +1269,7 @@
                       </div>
                     </div>
                     <div class="col-12 col-sm-6">
-                      <p style="text-align: justify;">${description1}</p>
-                      <p class="d-none d-sm-block" style="text-align: justify;">${description2}</p>
+                      <p style="text-align: justify;">${summary}</p>
                     </div>
                     <div class="col-6 mt-2 pt-2 border-top">
                       <!-- Usando o 'tag' do seu JSON no lugar da data -->
@@ -1338,7 +1328,12 @@
         return;
       }
 
-      fetch("assets/posts.json")
+      fetch("https://pyibnkqafmoeypjpbhwr.supabase.co/rest/v1/posts?select=*&order=id.desc", {
+        headers: {
+          "apikey": "sb_publishable_cwUyRtxb_cRsQTp3x-Lm9A_JavaOLts",
+          "Authorization": "Bearer sb_publishable_cwUyRtxb_cRsQTp3x-Lm9A_JavaOLts"
+        }
+      })
         .then((response) => {
           if (!response.ok) {
             throw new Error(`Erro HTTP: ${response.status}`);
