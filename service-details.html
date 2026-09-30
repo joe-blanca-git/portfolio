@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Joeder Blanca - Blog</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <title>Blog | Joeder Blanca</title>
+    <meta name="description" content="Artigos e publicações de Joeder Blanca sobre desenvolvimento, integrações e tecnologia." />
+    <meta name="theme-color" content="#065cc2" />
 
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon" />
@@ -15,25 +15,14 @@
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Quicksand:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@400;500;600&family=Quicksand:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
 
     <!-- Vendor CSS Files -->
-    <link
-      href="assets/vendor/bootstrap/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
-      rel="stylesheet"
-    />
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
     <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
-    <link
-      href="assets/vendor/glightbox/css/glightbox.min.css"
-      rel="stylesheet"
-    />
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
@@ -47,142 +36,108 @@
   ======================================================== -->
   </head>
 
-  <body class="service-details-page" s>
+  <body class="service-details-page">
     <header id="header" class="header d-flex align-items-center fixed-top">
-      <div
-        class="container-fluid position-relative d-flex align-items-center justify-content-between"
-      >
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.webp" alt=""> -->
-        <!-- Uncomment the line below if you also wish to use an text logo -->
-        <h1 class="sitename">Joeder Blanca</h1>
-      </a>
+      <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center">
+          <h1 class="sitename">Joeder Blanca</h1>
+        </a>
 
-      <nav id="navmenu" class="navmenu">
+        <nav id="navmenu" class="navmenu">
           <ul>
             <li><a href="index.html#hero">Home</a></li>
             <li><a href="index.html#about">Sobre mim</a></li>
             <li><a href="index.html#resume">Carreira</a></li>
-            <li><a href="index.html#blog">Blog</a></li>
+            <li><a href="index.html#blog" class="active">Blog</a></li>
             <li><a href="index.html#portfolio">Portfólio</a></li>
             <li><a href="index.html#contact">Contato</a></li>
-            <li><a href="admin.html">Admin</a></li>
+            <li class="nav-admin"><a href="admin.html">Admin</a></li>
           </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list" role="button" tabindex="0" aria-label="Abrir menu"></i>
         </nav>
       </div>
     </header>
 
     <main class="main">
-  
+      <!-- Post Section -->
+      <section id="service-details" class="service-details section">
+        <div class="container">
+          <nav class="post-breadcrumb" aria-label="Navegação">
+            <a href="index.html#blog"><i class="bi bi-arrow-left"></i> Voltar ao blog</a>
+          </nav>
 
-      <!-- Service Details Section -->
-      <section id="service-details" class="service-details section hero" tyle="min-height: 100vh !important">
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-          <div class="row gy-5">
-            <div
-              class="col-lg-8 d-flex flex-column p-2 gap-2"
-              data-aos="fade-up"
-              data-aos-delay="200"
-              id="posts-container"
-            ></div>
+          <div class="row g-4 g-lg-5">
+            <div class="col-lg-8" id="posts-container">
+              <article class="post-article" aria-hidden="true">
+                <div class="skeleton" style="aspect-ratio: 16 / 8; border-radius: 0;"></div>
+                <div class="post-article-body">
+                  <div class="skeleton" style="width: 110px; height: 24px;"></div>
+                  <div class="skeleton" style="width: 80%; height: 38px; margin: 18px 0 28px;"></div>
+                  <div class="skeleton" style="width: 100%; height: 16px; margin-bottom: 12px;"></div>
+                  <div class="skeleton" style="width: 96%; height: 16px; margin-bottom: 12px;"></div>
+                  <div class="skeleton" style="width: 88%; height: 16px;"></div>
+                </div>
+              </article>
+            </div>
 
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-              <div class="service-sidebar" id="summary-container">
-                <!-- <div class="service-info">
-                  <h4>Service Details</h4>
-                  <div class="info-list">
-                    <div class="info-item">
-                      <span class="info-label">Duration:</span>
-                      <span class="info-value">3-6 months</span>
-                    </div>
-                    <div class="info-item">
-                      <span class="info-label">Team Size:</span>
-                      <span class="info-value">4-6 specialists</span>
-                    </div>
-                    <div class="info-item">
-                      <span class="info-label">Delivery:</span>
-                      <span class="info-value">Bi-weekly reports</span>
-                    </div>
-                    <div class="info-item">
-                      <span class="info-label">Support:</span>
-                      <span class="info-value">24/7 monitoring</span>
+            <div class="col-lg-4">
+              <aside class="service-sidebar" id="summary-container">
+                <div class="sidebar-card">
+                  <div class="author-card">
+                    <img src="assets/img/profile/profile-square-3.png" alt="Joeder Blanca" />
+                    <div>
+                      <strong>Joeder Blanca</strong>
+                      <span>Desenvolvedor de Sistemas</span>
                     </div>
                   </div>
                 </div>
 
-                <div class="contact-card">
-                  <div class="contact-content">
-                    <h4>Need Help?</h4>
-                    <p>
-                      Sed porttitor lectus nibh. Vestibulum ac diam sit amet
-                      quam vehicula elementum sed sit amet dui.
-                    </p>
-                    <div class="contact-info">
-                      <div class="contact-item">
-                        <i class="bi bi-telephone"></i>
-                        <span>+1 (555) 123-4567</span>
-                      </div>
-                      <div class="contact-item">
-                        <i class="bi bi-envelope"></i>
-                        <span>info@example.com</span>
-                      </div>
-                    </div>
-                    <a href="#" class="btn btn-primary">Get Quote</a>
+                <div class="sidebar-card">
+                  <h4><i class="bi bi-newspaper"></i> Outras publicações</h4>
+                  <div class="post-list-items" id="summary-list">
+                    <div class="skeleton" style="height: 64px; margin-bottom: 8px;"></div>
+                    <div class="skeleton" style="height: 64px; margin-bottom: 8px;"></div>
+                    <div class="skeleton" style="height: 64px;"></div>
                   </div>
-                </div> -->
-              </div>
+                </div>
+              </aside>
             </div>
           </div>
         </div>
       </section>
-      <!-- /Service Details Section -->
+      <!-- /Post Section -->
     </main>
 
-    <div id="imageModal" class="image-modal">
-      <span class="close-modal">&times;</span>
-      <img class="modal-content" id="modalImg" />
+    <div id="imageModal" class="image-modal" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+      <button type="button" class="close-modal" aria-label="Fechar">&times;</button>
+      <img id="modalImg" alt="" />
     </div>
 
-    <!-- <footer id="footer" class="footer dark-background">
-      <div class="container">
-        <div class="copyright text-center">
-          <p>
-            © <span>Copyright</span>
-            <strong class="px-1 sitename">Style</strong>
-            <span>All Rights Reserved</span>
-          </p>
-        </div>
+    <footer id="footer" class="footer dark-background">
+      <div class="container text-center">
+        <div class="footer-brand">Joeder Blanca</div>
+        <p class="footer-tagline">Desenvolvedor de Sistemas · Integrações, APIs e Agricultura de Precisão</p>
         <div class="social-links d-flex justify-content-center">
-          <a href="https://www.instagram.com/joe_blanca/"
+          <a href="https://www.instagram.com/joe_blanca/" target="_blank" rel="noopener" aria-label="Instagram"
             ><i class="bi bi-instagram"></i
           ></a>
-          <a href="https://www.linkedin.com/in/joeder-blanca-032577201/"
+          <a href="https://www.linkedin.com/in/joeder-blanca-032577201/" target="_blank" rel="noopener" aria-label="LinkedIn"
             ><i class="bi bi-linkedin"></i
           ></a>
         </div>
-        <div class="credits d-none">
-          Desenvolvido por
-          <a href="https://bootstrapmade.com/">Joeder Blanca</a>
-        </div>
-        <div class="credits">
-          Desenvolvido por <a href="#">Joeder Blanca</a>
+        <div class="copyright mt-4">
+          <p>© <span class="footer-year">2026</span> Joeder Blanca. Todos os direitos reservados.</p>
         </div>
       </div>
-    </footer> -->
+    </footer>
 
     <!-- Scroll Top -->
-    <a
-      href="#"
-      id="scroll-top"
-      class="scroll-top d-flex align-items-center justify-content-center"
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Voltar ao topo"
       ><i class="bi bi-arrow-up-short"></i
     ></a>
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
     <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
     <script src="assets/vendor/typed.js/typed.umd.js"></script>
@@ -196,118 +151,185 @@
     <script src="assets/js/main.js"></script>
 
     <script>
+      const SUPABASE_REST = "https://pyibnkqafmoeypjpbhwr.supabase.co/rest/v1";
+      const SUPABASE_KEY = "sb_publishable_cwUyRtxb_cRsQTp3x-Lm9A_JavaOLts";
+      const PLACEHOLDER_IMG = "https://placehold.co/800x500/eef3f9/065cc2?text=Joeder+Blanca";
+      const IMG_FALLBACK = `onerror="this.onerror=null;this.src='${PLACEHOLDER_IMG}'"`;
+
       const container = document.getElementById("posts-container");
-      const summaryContainer = document.getElementById("summary-container");
+      const summaryList = document.getElementById("summary-list");
 
-      fetch("https://pyibnkqafmoeypjpbhwr.supabase.co/rest/v1/posts?select=*&order=id.desc", {
-        headers: {
-          "apikey": "sb_publishable_cwUyRtxb_cRsQTp3x-Lm9A_JavaOLts",
-          "Authorization": "Bearer sb_publishable_cwUyRtxb_cRsQTp3x-Lm9A_JavaOLts"
+      document.querySelectorAll(".footer-year").forEach((el) => {
+        el.textContent = new Date().getFullYear();
+      });
+
+      function escapeHtml(value) {
+        return String(value ?? "").replace(/[&<>"']/g, (c) => ({
+          "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+        })[c]);
+      }
+
+      function safeUrl(value) {
+        const url = String(value || "").trim();
+        return /^(javascript|data|vbscript):/i.test(url) ? "" : url;
+      }
+
+      // Posts novos vêm do Quill em HTML; os antigos são texto puro com quebras de linha
+      function renderContent(content) {
+        const raw = String(content || "");
+
+        if (!/<[a-z][\s\S]*>/i.test(raw)) {
+          return raw
+            .split(/\n{2,}/)
+            .map((block) => block.trim())
+            .filter(Boolean)
+            .map((block) => `<p>${escapeHtml(block).replace(/\n/g, "<br>")}</p>`)
+            .join("");
         }
+
+        const doc = new DOMParser().parseFromString(raw, "text/html");
+        doc.querySelectorAll("script, style, iframe, object, embed, form").forEach((el) => el.remove());
+        doc.querySelectorAll("*").forEach((el) => {
+          [...el.attributes].forEach((attr) => {
+            const isHandler = attr.name.startsWith("on");
+            const isBadUrl = ["href", "src"].includes(attr.name) && !safeUrl(attr.value);
+            if (isHandler || isBadUrl) el.removeAttribute(attr.name);
+          });
+        });
+        doc.querySelectorAll("a[href]").forEach((a) => {
+          a.target = "_blank";
+          a.rel = "noopener";
+        });
+        return doc.body.innerHTML;
+      }
+
+      function parseImages(images) {
+        let list = images;
+        if (typeof list === "string") {
+          try {
+            list = JSON.parse(list);
+          } catch {
+            list = [];
+          }
+        }
+        if (!Array.isArray(list)) return [];
+        return list
+          .map((img) => safeUrl(typeof img === "string" ? img : img && img.url))
+          .filter(Boolean);
+      }
+
+      function renderPost(post) {
+        const images = parseImages(post.images);
+        const cover = safeUrl(post.imgHeader);
+
+        const galleryHtml = images.length
+          ? `
+            <div class="service-gallery mt-5">
+              <h4>Galeria</h4>
+              <div class="row g-3">
+                ${images
+                  .map(
+                    (url, i) => `
+                  <div class="col-6 col-md-4">
+                    <img src="${escapeHtml(url)}" alt="Imagem ${i + 1} da galeria" class="gallery-img" loading="lazy" />
+                  </div>`
+                  )
+                  .join("")}
+              </div>
+            </div>`
+          : "";
+
+        return `
+          <article class="post-article">
+            ${cover ? `
+            <figure class="service-hero">
+              <img src="${escapeHtml(cover)}" alt="" ${IMG_FALLBACK} />
+            </figure>` : ""}
+            <div class="post-article-body">
+              ${post.tag ? `<span class="badge-soft">${escapeHtml(post.tag)}</span>` : ""}
+              <h1 class="post-article-title">${escapeHtml(post.title)}</h1>
+              <div class="post-content">${renderContent(post.content)}</div>
+              ${galleryHtml}
+            </div>
+          </article>`;
+      }
+
+      function renderSummary(posts, activeId) {
+        const others = posts.filter((p) => p.id !== activeId);
+        if (!others.length) {
+          return '<p class="text-secondary small mb-0">Nenhuma outra publicação por enquanto.</p>';
+        }
+        return others
+          .map(
+            (post) => `
+            <a href="service-details.html?post=${encodeURIComponent(post.id)}" class="post-mini">
+              <img src="${escapeHtml(safeUrl(post.imgHeader) || PLACEHOLDER_IMG)}" alt="" loading="lazy" ${IMG_FALLBACK} />
+              <div class="post-mini-body">
+                ${post.tag ? `<div class="post-mini-tag">${escapeHtml(post.tag)}</div>` : ""}
+                <div class="post-mini-title">${escapeHtml(post.title)}</div>
+              </div>
+              <i class="bi bi-chevron-right"></i>
+            </a>`
+          )
+          .join("");
+      }
+
+      // --- Modal de galeria ---
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImg");
+
+      function closeImageModal() {
+        modal.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      container.addEventListener("click", (e) => {
+        const img = e.target.closest(".gallery-img");
+        if (!img) return;
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        modal.classList.add("open");
+        document.body.style.overflow = "hidden";
+      });
+      modal.querySelector(".close-modal").addEventListener("click", closeImageModal);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeImageModal();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("open")) closeImageModal();
+      });
+
+      fetch(`${SUPABASE_REST}/posts?select=*&order=id.desc`, {
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: `Bearer ${SUPABASE_KEY}`,
+        },
       })
-        .then((response) => response.json())
+        .then((response) => {
+          if (!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
+          return response.json();
+        })
         .then((posts) => {
-          const urlParams = new URLSearchParams(window.location.search);
-          const postParam = urlParams.get("post");
-
-          let filteredPosts = postParam
-            ? posts.filter((p) => p.id === parseInt(postParam))
-            : posts;
-
-          if (postParam && filteredPosts.length === 0) {
-            filteredPosts = posts;
+          if (!posts || posts.length === 0) {
+            container.innerHTML =
+              '<div class="post-article"><div class="empty-state"><i class="bi bi-journal-text"></i>Nenhuma publicação encontrada.</div></div>';
+            summaryList.innerHTML = "";
+            return;
           }
 
-          // --- Cria posts ---
-          filteredPosts.forEach((postData, index) => {
-            const galleryHtml = postData.images
-              .map(
-                (img, imgIndex) => `
-              <div class="col-md-4">
-                <img src="${img.url}" alt="gallery-${index}-${imgIndex}" class="img-fluid rounded gallery-img"
-                  style="width: 100%; max-height: 250px; object-fit: cover; object-position: top;"/>
-              </div>
-            `
-              )
-              .join("");
+          // Sem ?post=ID (ou ID inexistente), abre a publicação mais recente
+          const postParam = new URLSearchParams(window.location.search).get("post");
+          const post = posts.find((p) => String(p.id) === postParam) || posts[0];
 
-            const postHtml = `
-          <div class="card shadow mb-4">
-            <div class="card-body">
-              <div class="service-hero p-3">
-                <img src="${postData.imgHeader}" alt="post${index}" class="img-fluid rounded" style="width: 100%; object-fit: cover; object-position: top;"/>
-                <div class="service-badge">
-                  <span>${postData.tag}</span>
-                </div>
-              </div>
-              <div class="service-content">
-                <div class="service-header">
-                  <h2>${postData.title}</h2>
-                  <p class="service-intro" style="text-align: justify; white-space: pre-line;">
-                    ${postData.content}
-                  </p>
-                </div>
-                <div class="service-gallery" data-aos="fade-up" data-aos-delay="100">
-                  <h4>Galeria</h4>
-                  <div class="row gy-3">
-                    ${galleryHtml}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        `;
-
-            container.innerHTML += postHtml;
-          });
-
-          // --- Cria sumário de posts ---
-          const summaryPostsHtml = posts
-                                        .map((post) => {
-                                          // verifica se o parâmetro da URL corresponde ao id do post
-                                          const isActive = postParam && parseInt(postParam) === post.id ? "active" : "";
-                                          return `
-                                            <a href="service-details.html?post=${post.id}" class="menu-item ${isActive}">
-                                              <i class="bi bi-arrow-right"></i>
-                                              <span>${post.title}</span>
-                                            </a>
-                                          `;
-                                        })
-                                        .join("");
-
-                  const summary = `
-                      <div class="service-menu">
-                        <h4>Posts</h4>
-                        <div class="menu-list">
-                          ${summaryPostsHtml}
-                        </div>
-                      </div>`;
-
-          summaryContainer.innerHTML += summary;
-
-          // --- Modal de galeria ---
-          const modal = document.getElementById("imageModal");
-          const modalImg = document.getElementById("modalImg");
-          const closeModal = document.querySelector(".close-modal");
-
-          document.querySelectorAll(".gallery-img").forEach((img) => {
-            img.addEventListener("click", () => {
-              modal.style.display = "block";
-              modalImg.src = img.src;
-            });
-          });
-
-          closeModal.addEventListener("click", () => {
-            modal.style.display = "none";
-          });
-
-          modal.addEventListener("click", (e) => {
-            if (e.target === modal) modal.style.display = "none";
-          });
+          container.innerHTML = renderPost(post);
+          summaryList.innerHTML = renderSummary(posts, post.id);
+          document.title = `${post.title} | Joeder Blanca`;
         })
         .catch((error) => {
-          console.error("Erro ao carregar o arquivo posts.json:", error);
-          container.innerHTML = "<p>Erro ao carregar posts.</p>";
+          console.error("Erro ao carregar posts:", error);
+          container.innerHTML =
+            '<div class="post-article"><div class="empty-state"><i class="bi bi-wifi-off"></i>Não foi possível carregar a publicação.</div></div>';
+          summaryList.innerHTML = "";
         });
     </script>
   </body>

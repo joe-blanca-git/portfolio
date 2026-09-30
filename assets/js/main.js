@@ -15,6 +15,7 @@
   function toggleScrolled() {
     const selectBody = document.querySelector('body');
     const selectHeader = document.querySelector('#header');
+    if (!selectHeader) return;
     if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
     window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
   }
@@ -28,12 +29,32 @@
   const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
 
   function mobileNavToogle() {
-    document.querySelector('body').classList.toggle('mobile-nav-active');
+    const isOpen = document.querySelector('body').classList.toggle('mobile-nav-active');
     mobileNavToggleBtn.classList.toggle('bi-list');
     mobileNavToggleBtn.classList.toggle('bi-x');
+    mobileNavToggleBtn.setAttribute('aria-expanded', isOpen);
+    mobileNavToggleBtn.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
   }
   if (mobileNavToggleBtn) {
     mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+    mobileNavToggleBtn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        mobileNavToogle();
+      }
+    });
+
+    // Close the side menu when tapping the backdrop or pressing Esc
+    document.addEventListener('click', (e) => {
+      if (!document.querySelector('.mobile-nav-active')) return;
+      if (e.target.closest('#navmenu')) return;
+      mobileNavToogle();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.querySelector('.mobile-nav-active')) {
+        mobileNavToogle();
+      }
+    });
   }
 
   /**
@@ -70,13 +91,15 @@
       window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
     }
   }
-  scrollTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+  if (scrollTop) {
+    scrollTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
-  });
+  }
 
   window.addEventListener('load', toggleScrollTop);
   document.addEventListener('scroll', toggleScrollTop);
