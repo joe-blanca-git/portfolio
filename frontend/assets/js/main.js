@@ -118,42 +118,45 @@
   window.addEventListener('load', aosInit);
 
   /**
-   * Initiate Pure Counter
+   * Widgets that depend on page content. They run on load and again when
+   * site.js finishes rendering the data from the API ("site:rendered").
    */
-  new PureCounter();
+  function initContentWidgets() {
+    if (typeof PureCounter !== 'undefined') {
+      new PureCounter();
+    }
 
-  /**
-   * Init typed.js
-   */
-  const selectTyped = document.querySelector('.typed');
-  if (selectTyped) {
-    let typed_strings = selectTyped.getAttribute('data-typed-items');
-    typed_strings = typed_strings.split(',');
-    new Typed('.typed', {
-      strings: typed_strings,
-      loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
-    });
+    const selectTyped = document.querySelector('.typed');
+    const typedItems = selectTyped && selectTyped.getAttribute('data-typed-items');
+    if (typedItems && !selectTyped.dataset.typedInit && typeof Typed !== 'undefined') {
+      selectTyped.dataset.typedInit = 'true';
+      new Typed(selectTyped, {
+        strings: typedItems.split(',').map(s => s.trim()).filter(Boolean),
+        loop: true,
+        typeSpeed: 100,
+        backSpeed: 50,
+        backDelay: 2000
+      });
+    }
+
+    if (typeof Waypoint !== 'undefined') {
+      document.querySelectorAll('.skills-animation:not([data-waypoint])').forEach((item) => {
+        item.dataset.waypoint = 'true';
+        new Waypoint({
+          element: item,
+          offset: '80%',
+          handler: function() {
+            item.querySelectorAll('.progress .progress-bar').forEach(el => {
+              el.style.width = el.getAttribute('aria-valuenow') + '%';
+            });
+          }
+        });
+      });
+    }
   }
 
-  /**
-   * Animate the skills items on reveal
-   */
-  let skillsAnimation = document.querySelectorAll('.skills-animation');
-  skillsAnimation.forEach((item) => {
-    new Waypoint({
-      element: item,
-      offset: '80%',
-      handler: function(direction) {
-        let progress = item.querySelectorAll('.progress .progress-bar');
-        progress.forEach(el => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%';
-        });
-      }
-    });
-  });
+  initContentWidgets();
+  document.addEventListener('site:rendered', initContentWidgets);
 
   /**
    * Initiate glightbox

@@ -2,18 +2,55 @@
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Blog | Joeder Blanca</title>
-    <meta name="description" content="Artigos e publicações de Joeder Blanca sobre desenvolvimento, integrações e tecnologia." />
-    <meta name="theme-color" content="#065cc2" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon" />
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <!-- SEO: as tags com data-seo são preenchidas pelo backend com os dados do post -->
+    <title data-seo="title">Blog | Joeder Blanca — Desenvolvimento, Integrações e Tecnologia</title>
+    <meta name="description" data-seo="description"
+      content="Artigos de Joeder Blanca sobre desenvolvimento de sistemas, integrações, APIs, automação e tecnologia no agronegócio." />
+    <meta name="keywords" data-seo="keywords" content="blog, desenvolvimento, integrações, APIs, tecnologia, agronegócio" />
+    <meta name="author" content="Joeder Blanca" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" data-seo="url" href="service-details.html" />
+
+    <!-- Open Graph (WhatsApp, LinkedIn, Facebook) -->
+    <meta property="og:type" data-seo="type" content="article" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Joeder Blanca" />
+    <meta property="og:title" data-seo="title" content="Blog | Joeder Blanca" />
+    <meta property="og:description" data-seo="description"
+      content="Artigos sobre desenvolvimento de sistemas, integrações, APIs e tecnologia." />
+    <meta property="og:url" data-seo="url" content="service-details.html" />
+    <meta property="og:image" data-seo="image" content="assets/img/og-image.jpg" />
+    <meta property="og:image:alt" data-seo="image_alt" content="Blog de Joeder Blanca" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" data-seo="title" content="Blog | Joeder Blanca" />
+    <meta name="twitter:description" data-seo="description"
+      content="Artigos sobre desenvolvimento de sistemas, integrações, APIs e tecnologia." />
+    <meta name="twitter:image" data-seo="image" content="assets/img/og-image.jpg" />
+
+    <!-- Dados estruturados (Google) -->
+    <script type="application/ld+json" data-seo="jsonld">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Blog de Joeder Blanca",
+      "inLanguage": "pt-BR",
+      "author": { "@type": "Person", "name": "Joeder Blanca" }
+    }
+    </script>
+
+    <!-- App / ícones -->
+    <meta name="theme-color" content="#065cc2" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@400;500;600&family=Quicksand:wght@500;600;700&display=swap"
       rel="stylesheet"
@@ -27,20 +64,22 @@
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
 
-    <!-- =======================================================
-  * Template Name: Style
-  * Template URL: https://bootstrapmade.com/style-bootstrap-portfolio-template/
-  * Updated: Jul 02 2025 with Bootstrap v5.3.7
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHLY6PZHL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+
+      gtag('config', 'G-5LHLY6PZHL');
+    </script>
   </head>
 
   <body class="service-details-page">
     <header id="header" class="header d-flex align-items-center fixed-top">
       <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
-          <h1 class="sitename">Joeder Blanca</h1>
+        <a href="index.html" class="logo d-flex align-items-center" aria-label="Página inicial">
+          <span class="sitename">Joeder Blanca</span>
         </a>
 
         <nav id="navmenu" class="navmenu">
@@ -150,11 +189,10 @@
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
 
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/common.js"></script>
     <script>
-      const SUPABASE_REST = "https://pyibnkqafmoeypjpbhwr.supabase.co/rest/v1";
-      const SUPABASE_KEY = "sb_publishable_cwUyRtxb_cRsQTp3x-Lm9A_JavaOLts";
-      const PLACEHOLDER_IMG = "https://placehold.co/800x500/eef3f9/065cc2?text=Joeder+Blanca";
-      const IMG_FALLBACK = `onerror="this.onerror=null;this.src='${PLACEHOLDER_IMG}'"`;
+      const { escapeHtml, assetUrl, sanitizeHtml, imgFallback, PLACEHOLDER_IMG, request } = window.Portfolio;
 
       const container = document.getElementById("posts-container");
       const summaryList = document.getElementById("summary-list");
@@ -163,64 +201,22 @@
         el.textContent = new Date().getFullYear();
       });
 
-      function escapeHtml(value) {
-        return String(value ?? "").replace(/[&<>"']/g, (c) => ({
-          "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
-        })[c]);
-      }
-
-      function safeUrl(value) {
-        const url = String(value || "").trim();
-        return /^(javascript|data|vbscript):/i.test(url) ? "" : url;
-      }
-
       // Posts novos vêm do Quill em HTML; os antigos são texto puro com quebras de linha
       function renderContent(content) {
         const raw = String(content || "");
+        if (/<[a-z][\s\S]*>/i.test(raw)) return sanitizeHtml(raw);
 
-        if (!/<[a-z][\s\S]*>/i.test(raw)) {
-          return raw
-            .split(/\n{2,}/)
-            .map((block) => block.trim())
-            .filter(Boolean)
-            .map((block) => `<p>${escapeHtml(block).replace(/\n/g, "<br>")}</p>`)
-            .join("");
-        }
-
-        const doc = new DOMParser().parseFromString(raw, "text/html");
-        doc.querySelectorAll("script, style, iframe, object, embed, form").forEach((el) => el.remove());
-        doc.querySelectorAll("*").forEach((el) => {
-          [...el.attributes].forEach((attr) => {
-            const isHandler = attr.name.startsWith("on");
-            const isBadUrl = ["href", "src"].includes(attr.name) && !safeUrl(attr.value);
-            if (isHandler || isBadUrl) el.removeAttribute(attr.name);
-          });
-        });
-        doc.querySelectorAll("a[href]").forEach((a) => {
-          a.target = "_blank";
-          a.rel = "noopener";
-        });
-        return doc.body.innerHTML;
-      }
-
-      function parseImages(images) {
-        let list = images;
-        if (typeof list === "string") {
-          try {
-            list = JSON.parse(list);
-          } catch {
-            list = [];
-          }
-        }
-        if (!Array.isArray(list)) return [];
-        return list
-          .map((img) => safeUrl(typeof img === "string" ? img : img && img.url))
-          .filter(Boolean);
+        return raw
+          .split(/\n{2,}/)
+          .map((block) => block.trim())
+          .filter(Boolean)
+          .map((block) => `<p>${escapeHtml(block).replace(/\n/g, "<br>")}</p>`)
+          .join("");
       }
 
       function renderPost(post) {
-        const images = parseImages(post.images);
-        const cover = safeUrl(post.imgHeader);
+        const images = (post.images || []).map(assetUrl).filter(Boolean);
+        const cover = assetUrl(post.img_header);
 
         const galleryHtml = images.length
           ? `
@@ -228,12 +224,10 @@
               <h4>Galeria</h4>
               <div class="row g-3">
                 ${images
-                  .map(
-                    (url, i) => `
+                  .map((url, i) => `
                   <div class="col-6 col-md-4">
                     <img src="${escapeHtml(url)}" alt="Imagem ${i + 1} da galeria" class="gallery-img" loading="lazy" />
-                  </div>`
-                  )
+                  </div>`)
                   .join("")}
               </div>
             </div>`
@@ -243,7 +237,7 @@
           <article class="post-article">
             ${cover ? `
             <figure class="service-hero">
-              <img src="${escapeHtml(cover)}" alt="" ${IMG_FALLBACK} />
+              <img src="${escapeHtml(cover)}" alt="" ${imgFallback} />
             </figure>` : ""}
             <div class="post-article-body">
               ${post.tag ? `<span class="badge-soft">${escapeHtml(post.tag)}</span>` : ""}
@@ -260,17 +254,15 @@
           return '<p class="text-secondary small mb-0">Nenhuma outra publicação por enquanto.</p>';
         }
         return others
-          .map(
-            (post) => `
+          .map((post) => `
             <a href="service-details.html?post=${encodeURIComponent(post.id)}" class="post-mini">
-              <img src="${escapeHtml(safeUrl(post.imgHeader) || PLACEHOLDER_IMG)}" alt="" loading="lazy" ${IMG_FALLBACK} />
+              <img src="${escapeHtml(assetUrl(post.img_header) || PLACEHOLDER_IMG)}" alt="" loading="lazy" ${imgFallback} />
               <div class="post-mini-body">
                 ${post.tag ? `<div class="post-mini-tag">${escapeHtml(post.tag)}</div>` : ""}
                 <div class="post-mini-title">${escapeHtml(post.title)}</div>
               </div>
               <i class="bi bi-chevron-right"></i>
-            </a>`
-          )
+            </a>`)
           .join("");
       }
 
@@ -299,38 +291,34 @@
         if (e.key === "Escape" && modal.classList.contains("open")) closeImageModal();
       });
 
-      fetch(`${SUPABASE_REST}/posts?select=*&order=id.desc`, {
-        headers: {
-          apikey: SUPABASE_KEY,
-          Authorization: `Bearer ${SUPABASE_KEY}`,
-        },
-      })
-        .then((response) => {
-          if (!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
-          return response.json();
-        })
-        .then((posts) => {
-          if (!posts || posts.length === 0) {
-            container.innerHTML =
-              '<div class="post-article"><div class="empty-state"><i class="bi bi-journal-text"></i>Nenhuma publicação encontrada.</div></div>';
-            summaryList.innerHTML = "";
-            return;
-          }
+      function showError(message) {
+        container.innerHTML = `<div class="post-article"><div class="empty-state"><i class="bi bi-wifi-off"></i>${escapeHtml(message)}</div></div>`;
+        summaryList.innerHTML = "";
+      }
 
-          // Sem ?post=ID (ou ID inexistente), abre a publicação mais recente
-          const postParam = new URLSearchParams(window.location.search).get("post");
-          const post = posts.find((p) => String(p.id) === postParam) || posts[0];
-
-          container.innerHTML = renderPost(post);
-          summaryList.innerHTML = renderSummary(posts, post.id);
-          document.title = `${post.title} | Joeder Blanca`;
-        })
-        .catch((error) => {
-          console.error("Erro ao carregar posts:", error);
+      async function load() {
+        const posts = await request("/api/posts");
+        if (!posts.length) {
           container.innerHTML =
-            '<div class="post-article"><div class="empty-state"><i class="bi bi-wifi-off"></i>Não foi possível carregar a publicação.</div></div>';
+            '<div class="post-article"><div class="empty-state"><i class="bi bi-journal-text"></i>Nenhuma publicação encontrada.</div></div>';
           summaryList.innerHTML = "";
-        });
+          return;
+        }
+
+        // Sem ?post=ID (ou ID inexistente), abre a publicação mais recente
+        const postParam = new URLSearchParams(window.location.search).get("post");
+        const summary = posts.find((p) => String(p.id) === postParam) || posts[0];
+        const post = await request(`/api/posts/${encodeURIComponent(summary.id)}`);
+
+        container.innerHTML = renderPost(post);
+        summaryList.innerHTML = renderSummary(posts, post.id);
+        document.title = `${post.title} | Joeder Blanca`;
+      }
+
+      load().catch((error) => {
+        console.error("Erro ao carregar posts:", error);
+        showError("Não foi possível carregar a publicação.");
+      });
     </script>
   </body>
 </html>

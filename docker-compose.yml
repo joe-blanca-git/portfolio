@@ -1,0 +1,80 @@
+# Portfólio Joeder Blanca: aplicação + MySQL próprio, isolados dos demais projetos do servidor.
+# Configuração em .env (veja .env.example).
+name: joeder-portfolio
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: joeder-portfolio-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: portfolio
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      TZ: America/Sao_Paulo
+    # Ajustes para consumir pouca memória
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --innodb-buffer-pool-size=128M
+      - --performance-schema=OFF
+      - --max-connections=40
+      - --skip-name-resolve
+    volumes:
+      - mysql-data:/var/lib/mysql
+      # Executados apenas na primeira inicialização (volume vazio)
+      - ./backend/database/script.sql:/docker-entrypoint-initdb.d/01-script.sql:ro
+      - ./backend/database/dados_migracao.sql:/docker-entrypoint-initdb.d/02-dados_migracao.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p\"$$MYSQL_ROOT_PASSWORD\" --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    networks:
+      - internal
+    mem_limit: 512m
+    # Sem "ports": o banco só é acessível pela aplicação, nunca pela internet
+
+  app:
+    build: .
+    image: joeder-portfolio-app
+    container_name: joeder-portfolio-app
+    restart: unless-stopped
+    # A aplicação recebe só o que precisa (nunca a senha root do MySQL)
+    environment:
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_NAME: portfolio
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      SECRET_KEY: ${SECRET_KEY}
+      TOKEN_HOURS: ${TOKEN_HOURS:-12}
+      SITE_URL: ${SITE_URL}
+      CORS_ORIGINS: ${CORS_ORIGINS}
+      MAX_UPLOAD_MB: ${MAX_UPLOAD_MB:-5}
+      DEBUG: ${DEBUG:-false}
+      SERVE_FRONTEND: "true"
+      TZ: America/Sao_Paulo
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      # Só a própria máquina acessa; o Nginx do servidor faz o proxy público
+      - "127.0.0.1:${APP_PORT:-8082}:8000"
+    volumes:
+      - uploads:/app/backend/uploads
+    networks:
+      - internal
+    mem_limit: 384m
+
+volumes:
+  mysql-data:
+    name: joeder-portfolio-mysql
+  uploads:
+    name: joeder-portfolio-uploads
+
+networks:
+  internal:
+    name: joeder-portfolio-net

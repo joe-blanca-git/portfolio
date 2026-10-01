@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO: as tags com data-seo são preenchidas pelo backend com dados do banco -->
+  <title data-seo="title">Joeder Blanca | Desenvolvedor de Sistemas — Integrações, APIs e Agricultura de Precisão</title>
+  <meta name="description" data-seo="description"
+    content="Joeder Blanca, desenvolvedor de sistemas especializado em integrações entre plataformas, APIs REST e soluções de agricultura de precisão com o Operations Center da John Deere." />
+  <meta name="keywords" data-seo="keywords"
+    content="Joeder Blanca, desenvolvedor de sistemas, integrações, APIs, Operations Center, John Deere, agricultura de precisão, setor sucroalcooleiro, C#, Angular, Ituverava" />
+  <meta name="author" content="Joeder Blanca" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" data-seo="url" href="/" />
+
+  <!-- Open Graph (WhatsApp, LinkedIn, Facebook) -->
+  <meta property="og:type" data-seo="type" content="profile" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Joeder Blanca" />
+  <meta property="og:title" data-seo="title" content="Joeder Blanca | Desenvolvedor de Sistemas" />
+  <meta property="og:description" data-seo="description"
+    content="Desenvolvedor de sistemas especializado em integrações, APIs e soluções de agricultura de precisão." />
+  <meta property="og:url" data-seo="url" content="/" />
+  <meta property="og:image" data-seo="image" content="assets/img/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" data-seo="image_alt" content="Joeder Blanca — Desenvolvedor de Sistemas" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" data-seo="title" content="Joeder Blanca | Desenvolvedor de Sistemas" />
+  <meta name="twitter:description" data-seo="description"
+    content="Desenvolvedor de sistemas especializado em integrações, APIs e soluções de agricultura de precisão." />
+  <meta name="twitter:image" data-seo="image" content="assets/img/og-image.jpg" />
+
+  <!-- Dados estruturados (Google) -->
+  <script type="application/ld+json" data-seo="jsonld">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Joeder Blanca",
+    "jobTitle": "Desenvolvedor de Sistemas",
+    "sameAs": ["https://www.linkedin.com/in/joeder-blanca-032577201/", "https://www.instagram.com/joe_blanca/"]
+  }
+  </script>
+
+  <!-- App / ícones -->
+  <meta name="theme-color" content="#065cc2" />
+  <meta name="format-detection" content="telephone=no" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- Performance -->
+  <link rel="preload" as="image" data-seo="preload_image" href="assets/img/profile/profile-square-2.png" fetchpriority="high" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@400;500;600&family=Quicksand:wght@500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHLY6PZHL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-5LHLY6PZHL');
+  </script>
+</head>
+
+<body class="index-page is-loading">
+  <div class="page-loader" aria-hidden="true"><span class="spinner"></span></div>
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center" aria-label="Página inicial">
+        <span class="sitename" data-field="full_name">Joeder Blanca</span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">Sobre mim</a></li>
+          <li><a href="#resume">Carreira</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#contact">Contato</a></li>
+          <li class="nav-admin"><a href="admin.html">Admin</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list" role="button" tabindex="0" aria-label="Abrir menu"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <div id="site-error" class="site-error d-none" role="alert"></div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+      <div class="container">
+        <div class="row g-0 align-items-center">
+          <div class="col-lg-6 hero-content" data-aos="fade-right" data-aos-delay="100">
+            <div class="content-wrapper">
+              <span class="hero-eyebrow"><span class="dot"></span> <span data-field="hero_greeting"></span></span>
+              <h1 class="hero-title">
+                <span data-field="hero_title"></span>
+                <span class="typed" id="hero-typed"></span>
+              </h1>
+              <p class="lead" data-field="hero_lead"></p>
+
+              <div class="hero-stats" id="hero-stats" data-aos="fade-up" data-aos-delay="200"></div>
+
+              <div class="hero-actions" data-aos="fade-up" data-aos-delay="300">
+                <a href="#portfolio" class="btn btn-primary">Conheça Meu Trabalho <i class="bi bi-arrow-right"></i></a>
+                <a href="#contact" class="btn btn-outline">Entre em Contato</a>
+              </div>
+
+              <div class="social-links" id="hero-social" data-aos="fade-up" data-aos-delay="400"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 hero-image" data-aos="fade-left" data-aos-delay="200">
+            <div class="image-container">
+              <div class="floating-elements" id="hero-badges"></div>
+              <img id="hero-image" src="" alt="" class="img-fluid hero-main-image" fetchpriority="high" />
+              <div class="image-overlay"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+      <div class="container section-title">
+        <h2>Sobre mim</h2>
+        <p data-field="about_subtitle"></p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-center">
+          <div class="col-lg-5" data-aos="fade-right" data-aos-delay="200">
+            <div class="profile-image-wrapper">
+              <div class="profile-image">
+                <img id="about-image" src="" alt="" class="img-fluid" />
+              </div>
+              <div class="signature-section">
+                <img id="signature-image" src="" alt="Assinatura" class="signature" />
+                <p class="quote" data-field="about_quote"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7" data-aos="fade-left" data-aos-delay="300">
+            <div class="about-content">
+              <div class="intro">
+                <h2 data-field="about_title"></h2>
+                <p data-field="about_text"></p>
+              </div>
+
+              <div class="skills-grid" id="about-highlights"></div>
+
+              <div class="journey-timeline" id="about-timeline" data-aos="fade-up" data-aos-delay="300"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /About Section -->
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section light-background">
+      <div class="container section-title">
+        <h2>Habilidades</h2>
+        <p>Tecnologias e competências que uso no dia a dia</p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="skills-grid">
+              <div class="row g-4" id="skill-categories"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="skills-summary" data-aos="fade-left" data-aos-delay="200">
+              <h3 data-field="skills_summary_title"></h3>
+              <p data-field="skills_summary_text"></p>
+
+              <div class="summary-stats" id="awards"></div>
+
+              <div class="skills-badges" id="certificates-block">
+                <h4>Certificados</h4>
+                <div class="badge-list" id="certificates"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Skills Section -->
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume section">
+      <div class="container section-title">
+        <h2>Carreira</h2>
+        <p>Experiência profissional e formação acadêmica</p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
+            <div class="experience-section">
+              <div class="section-header">
+                <h2><i class="bi bi-briefcase"></i> Jornada Profissional</h2>
+                <p class="section-subtitle text-start" id="experience-quote"></p>
+              </div>
+              <div class="experience-cards" id="experiences"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+            <div class="education-section">
+              <div class="section-header">
+                <h2><i class="bi bi-mortarboard"></i> Formação Acadêmica</h2>
+                <p class="section-subtitle text-end" id="education-quote"></p>
+              </div>
+              <div class="education-timeline">
+                <div class="timeline-track"></div>
+                <div id="education"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Resume Section -->
+
+    <!-- Courses Section -->
+    <section id="services" class="services section light-background">
+      <div class="container section-title">
+        <h2>Cursos</h2>
+        <p>Formação complementar e certificações</p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-4" id="courses-container"></div>
+      </div>
+    </section>
+    <!-- /Courses Section -->
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog section">
+      <div class="container section-title">
+        <h2>Blog</h2>
+        <p>Artigos, novidades e aprendizados do dia a dia</p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-4">
+          <div class="col-lg-8" id="featured-post-container"></div>
+          <div class="col-lg-4">
+            <aside class="post-list">
+              <h4><i class="bi bi-newspaper"></i> Mais publicações</h4>
+              <div class="post-list-items" id="sidebar-posts-container"></div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Blog Section -->
+
+    <!-- Portfólio Section -->
+    <section id="portfolio" class="portfolio section light-background">
+      <div class="container section-title">
+        <h2>Portfólio</h2>
+        <p>Projetos e Cases de Sucesso</p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <ul class="portfolio-filters-modern" id="portfolio-filters">
+          <li data-filter="*" class="filter-active" role="button" tabindex="0">Todos</li>
+          <li data-filter=".filter-api" role="button" tabindex="0">Integrações</li>
+          <li data-filter=".filter-plataform" role="button" tabindex="0">Plataformas</li>
+          <li data-filter=".filter-site" role="button" tabindex="0">Sites</li>
+        </ul>
+
+        <div class="row g-4 isotope-container" id="projects-container"></div>
+      </div>
+
+      <!-- Portfolio Modal -->
+      <div class="modal fade portfolio-modal" id="portfolioModal" tabindex="-1" aria-labelledby="portfolioModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg modal-fullscreen-sm-down">
+          <div class="modal-content">
+            <button type="button" class="btn-close-floating" data-bs-dismiss="modal" aria-label="Fechar">
+              <i class="bi bi-x-lg"></i>
+            </button>
+            <div class="modal-body p-0">
+              <img id="portfolioModalImg" src="" class="modal-cover" alt="" />
+              <div class="modal-info">
+                <span id="portfolioModalCategory" class="badge-soft"></span>
+                <h5 class="modal-title" id="portfolioModalLabel"></h5>
+                <p id="portfolioModalDesc" class="modal-desc"></p>
+                <a id="portfolioModalLink" href="#" target="_blank" rel="noopener"
+                  class="btn btn-primary rounded-pill px-4 py-2 mt-4 d-none">
+                  Visitar Projeto <i class="bi bi-box-arrow-up-right ms-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Portfólio Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+      <div class="container section-title">
+        <h2>Contato</h2>
+        <p>Vamos conversar sobre o seu próximo projeto</p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-4 g-lg-5">
+          <div class="col-lg-5">
+            <div class="info-box" data-aos="fade-up" data-aos-delay="200">
+              <h3 data-field="contact_title"></h3>
+              <p class="info-lead" data-field="contact_text"></p>
+              <div id="contact-items"></div>
+              <div class="contact-actions" id="contact-actions"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="300">
+            <img id="contact-image" src="" class="contact-photo" alt="" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Contact Section -->
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container text-center">
+      <div class="footer-brand" data-field="full_name"></div>
+      <p class="footer-tagline" data-field="footer_tagline"></p>
+      <div class="social-links d-flex justify-content-center" id="footer-social"></div>
+      <div class="copyright mt-4">
+        <p>© <span class="footer-year"></span> <span data-field="full_name"></span>. Todos os direitos reservados.</p>
+      </div>
+      <div class="credits d-none">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Desenvolvido por
+        <a href="https://bootstrapmade.com/">Joeder Blanca</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"
+    aria-label="Voltar ao topo"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/site.js"></script>
+</body>
+
+</html>

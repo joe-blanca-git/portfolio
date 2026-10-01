@@ -1,0 +1,14 @@
+{
+  "name": "Joeder Blanca | Desenvolvedor de Sistemas",
+  "short_name": "Joeder Blanca",
+  "description": "Portfólio de Joeder Blanca: integrações, APIs e soluções de agricultura de precisão.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#065cc2",
+  "icons": [
+    { "src": "assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "assets/img/favicon.png", "sizes": "32x32", "type": "image/png" }
+  ]
+}
